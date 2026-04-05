@@ -644,7 +644,22 @@
       <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
       <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="classes.html">Training</a>
+    <div class="mobile-sub"><a href="classes.html">Classes</a><a href="schedule.html">Schedule</a><a href="group-training.html">Memberships</a></div>
+    <a href="about-us.html">About</a>
+    <div class="mobile-sub"><a href="about-us.html">Our Story</a><a href="coaches.html">Coaches</a></div>
+    <a href="locations-main.html">Locations</a>
+    <div class="mobile-sub"><a href="east-york-facility.html">East York</a><a href="durham-facility.html">Durham</a></div>
+    <a href="hyrox-workouts.html">HYROX</a>
+    <a href="customer-service.html">Connect</a>
+    <div class="mobile-cta"><a href="https://www.resilienceactivewear.com" target="_blank" class="btn-outline">Shop</a><a href="group-training.html" class="btn-primary">Get Started</a></div>
+  </div>
 
     <!-- Main Content -->
     <main>
@@ -809,5 +824,14 @@
 
     <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
   <script src="chat-nudge.js"></script>
+  <script>
+    (function() {
+      var btn = document.getElementById("navHamburger");
+      var menu = document.getElementById("mobileMenu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function() { var o = menu.classList.toggle("is-open"); btn.classList.toggle("is-open", o); btn.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; });
+      menu.querySelectorAll("a").forEach(function(l) { l.addEventListener("click", function() { menu.classList.remove("is-open"); btn.classList.remove("is-open"); btn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }); });
+    })();
+  </script>
 </body>
 </html>
