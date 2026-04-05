@@ -56,10 +56,13 @@
     .hero-actions { display: flex; gap: 16px; align-items: center; }
 
     /* PRESS BAR */
-    .press-bar { background: #0f0f0f; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0 80px; display: flex; align-items: center; height: 80px; gap: 0; }
-    .press-bar-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; padding-right: 40px; border-right: 1px solid var(--border); margin-right: 40px; }
-    .press-logos { display: flex; align-items: center; gap: 48px; flex: 1; }
-    .press-logo-name { font-size: 20px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: -0.5px; }
+    .press-bar { background: #0f0f0f; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0 80px; display: flex; align-items: center; height: 80px; gap: 0; overflow: hidden; }
+    .press-bar-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; padding-right: 40px; border-right: 1px solid var(--border); margin-right: 40px; flex-shrink: 0; }
+    .press-logos { display: flex; align-items: center; gap: 48px; flex: 1; overflow: hidden; }
+    .press-logos-track { display: flex; align-items: center; gap: 48px; animation: none; width: max-content; }
+    .press-logo-name { font-size: 20px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: -0.5px; white-space: nowrap; }
+    .press-logo-dot { color: #C8F135; font-size: 8px; opacity: 0.5; flex-shrink: 0; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* QUOTE SECTION */
     .quote-section { padding: 100px 80px; background: var(--dark); text-align: center; }
@@ -426,10 +429,24 @@
   <div class="press-bar">
     <span class="press-bar-label">As seen in</span>
     <div class="press-logos">
-      <span class="press-logo-name">GQ</span>
-      <span class="press-logo-name">The Best Toronto</span>
-      <span class="press-logo-name">BlogTO</span>
-      <span class="press-logo-name">Yahoo</span>
+      <div class="press-logos-track">
+        <span class="press-logo-name">GQ</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">The Best Toronto</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">BlogTO</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">Yahoo</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">GQ</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">The Best Toronto</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">BlogTO</span>
+        <span class="press-logo-dot">&#10022;</span>
+        <span class="press-logo-name">Yahoo</span>
+        <span class="press-logo-dot">&#10022;</span>
+      </div>
     </div>
   </div>
 
