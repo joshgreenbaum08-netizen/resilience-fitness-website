@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages - highest priority -->
+  <url><loc>https://resiliencefitness.ca/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/hyrox-workouts/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/east-york-facility/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/durham-facility/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- Training pages -->
+  <url><loc>https://resiliencefitness.ca/classes/</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/resilience-hyrox-league/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/hyrox-team/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/hyrox-gear-guide-2025/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- About pages -->
+  <url><loc>https://resiliencefitness.ca/about-us/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/locations-main/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/customer-service/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/revival-week/</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <!-- Class subpages -->
+  <url><loc>https://resiliencefitness.ca/class/hyrox-training-club/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/hyrox-revival-2-0/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/endurox/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/gameday/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/perform/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/gainz-lower-body/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/gainz-upper-body/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/strength-u/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/class-renew-2/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/class/ignite-deprecated/</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <!-- Membership pages -->
+  <url><loc>https://resiliencefitness.ca/membership/unlimited-annual/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/unlimited/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/6-month-unlimited/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/25-class-pack/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/15-class-pack/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/10-class-pack/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/5-class-pack/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/drop-in-class/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/membership/kidz-drop-in/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <!-- Content pages -->
+  <url><loc>https://resiliencefitness.ca/blogs-news/</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/podcast/</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
+  <!-- Legal pages -->
+  <url><loc>https://resiliencefitness.ca/resilience-fitness-policies-membership-terms/</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/privacy-policy/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://resiliencefitness.ca/terms-of-use/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+</urlset>

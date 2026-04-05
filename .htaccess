@@ -1,0 +1,58 @@
+Options -Indexes
+RewriteEngine On
+
+# ─────────────────────────────────────────────
+# 1. Force HTTPS
+# ─────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ─────────────────────────────────────────────
+# 2. Redirect www → non-www (or flip if needed)
+# ─────────────────────────────────────────────
+RewriteCond %{HTTP_HOST} ^www\.resiliencefitness\.ca$ [NC]
+RewriteRule ^ https://resiliencefitness.ca%{REQUEST_URI} [R=301,L]
+
+# ─────────────────────────────────────────────
+# 3. 301 Redirects — old /class/ pages
+# ─────────────────────────────────────────────
+RewriteRule ^class/endurox/?$            /classes/ [R=301,L]
+RewriteRule ^class/gainz-lower-body/?$   /classes/ [R=301,L]
+RewriteRule ^class/gainz-upper-body/?$   /classes/ [R=301,L]
+RewriteRule ^class/gameday/?$            /classes/ [R=301,L]
+RewriteRule ^class/perform/?$            /classes/ [R=301,L]
+RewriteRule ^class/strength-u/?$         /classes/ [R=301,L]
+RewriteRule ^class/hyrox-training-club/?$ /hyrox-workouts/ [R=301,L]
+RewriteRule ^class/hyrox-revival-2-0/?$  /resilience-hyrox-league/ [R=301,L]
+RewriteRule ^class/class-renew-2/?$      /classes/ [R=301,L]
+RewriteRule ^class/ignite-deprecated/?$  /classes/ [R=301,L]
+
+# ─────────────────────────────────────────────
+# 4. 301 Redirects — old /membership/ pages
+# ─────────────────────────────────────────────
+RewriteRule ^membership/unlimited/?$         /group-training/ [R=301,L]
+RewriteRule ^membership/unlimited-annual/?$  /group-training/ [R=301,L]
+RewriteRule ^membership/6-month-unlimited/?$ /group-training/ [R=301,L]
+RewriteRule ^membership/drop-in-class/?$     /group-training/ [R=301,L]
+RewriteRule ^membership/10-class-pack/?$     /group-training/ [R=301,L]
+RewriteRule ^membership/15-class-pack/?$     /group-training/ [R=301,L]
+RewriteRule ^membership/25-class-pack/?$     /group-training/ [R=301,L]
+RewriteRule ^membership/5-class-pack/?$      /group-training/ [R=301,L]
+RewriteRule ^membership/kidz-drop-in/?$      /group-training/ [R=301,L]
+
+# ─────────────────────────────────────────────
+# 5. Clean URLs — serve /page-name/ from page-name.html
+#    This is what preserves ALL your existing backlinks
+# ─────────────────────────────────────────────
+
+# Skip if the request is already a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Strip trailing slash and try .html
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.html [L]
+
+# ─────────────────────────────────────────────
+# 6. Custom 404
+# ─────────────────────────────────────────────
+ErrorDocument 404 /index.html

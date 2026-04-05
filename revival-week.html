@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Revival Week at Resilience Fitness: try unlimited free classes for a full week. Available to new clients at both East York and Durham locations.">
+  <link rel="canonical" href="https://resiliencefitness.ca/revival-week/">
+  <title>Revival Week — Free Unlimited Classes | Resilience Fitness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: white;
+      font-family: var(--font), sans-serif;
+      line-height: 1.6;
+    }
+
+    /* HEADER & NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(17, 17, 17, 0.95);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 20px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--lime);
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex: 1;
+      margin-left: 60px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--lime);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .cta-link {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    .cta-link:hover {
+      color: var(--lime);
+    }
+
+    .cta-button {
+      background-color: var(--lime);
+      color: var(--black);
+      padding: 12px 28px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.2s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background: #d4f548;
+      transform: translateY(-1px);
+    }
+
+    /* PADDING FOR FIXED NAV */
+    main {
+      padding-top: 72px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background-color: var(--dark);
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-content h2 {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--lime);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .hero-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 16px;
+      border: 1px solid var(--border);
+    }
+
+    /* WHAT'S INCLUDED SECTION */
+    .whats-included {
+      background-color: var(--dark);
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-header h2 {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .section-header h3 {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--lime);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .class-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .class-card:hover {
+      border-color: var(--lime);
+      transform: translateY(-4px);
+    }
+
+    .class-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .class-card-content {
+      padding: 30px;
+    }
+
+    .class-card-content h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .class-card-content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* REGISTRATION SECTION */
+    .registration {
+      background-color: var(--dark);
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .registration-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    .registration-text h2 {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .registration-text p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .registration-steps h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .registration-steps ol {
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 40px;
+    }
+
+    .registration-steps ol li {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .registration-steps ol li:before {
+      content: counter(item);
+      counter-increment: item;
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--lime);
+    }
+
+    .registration-disclaimer {
+      font-size: 14px;
+      color: var(--lime);
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* REGISTRATION FORM */
+    .registration-form {
+      background-color: var(--card);
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .registration-form h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .registration-form > p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: white;
+      font-family: var(--font), sans-serif;
+      font-size: 14px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--lime);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .phone-group {
+      display: flex;
+      gap: 0;
+    }
+
+    .phone-prefix {
+      padding: 12px 16px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-right: none;
+      color: white;
+      font-size: 14px;
+      border-radius: 4px 0 0 4px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .phone-group input {
+      border-radius: 0 4px 4px 0 !important;
+      border-left: none;
+    }
+
+    .form-group.checkbox {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .form-group.checkbox input[type="checkbox"] {
+      width: auto;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: var(--lime);
+    }
+
+    .form-group.checkbox label {
+      margin-bottom: 0;
+      font-size: 13px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      width: 100%;
+      background-color: var(--lime);
+      color: var(--black);
+      padding: 14px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font), sans-serif;
+    }
+
+    .form-submit:hover {
+      background-color: white;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 40px;
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--lime);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+        gap: 40px;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .whats-included {
+        padding: 60px 20px;
+      }
+
+      .section-header h3 {
+        font-size: 36px;
+      }
+
+      .class-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .registration {
+        padding: 60px 20px;
+      }
+
+      .registration-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 15px 0;
+      }
+
+      .nav-container {
+        padding: 0 15px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav-ctas {
+        gap: 10px;
+      }
+
+      .cta-button {
+        padding: 10px 16px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 40px 15px;
+        gap: 30px;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .hero-content p {
+        font-size: 14px;
+      }
+
+      .whats-included {
+        padding: 40px 15px;
+      }
+
+      .section-header h3 {
+        font-size: 28px;
+      }
+
+      .section-header h2 {
+        font-size: 12px;
+      }
+
+      .section-header p {
+        font-size: 14px;
+      }
+
+      .registration {
+        padding: 40px 15px;
+      }
+
+      .registration-text h2 {
+        font-size: 28px;
+      }
+
+      .registration-form {
+        padding: 25px;
+      }
+
+      .registration-form h3 {
+        font-size: 18px;
+      }
+
+      .registration-text p {
+        font-size: 14px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .footer-column h4 {
+        font-size: 12px;
+      }
+
+      .footer-column ul li a {
+        font-size: 12px;
+      }
+
+      .phone-group {
+        flex-direction: column;
+      }
+
+      .phone-prefix {
+        border-radius: 4px;
+        border-right: 1px solid var(--border);
+      }
+
+      .phone-group input {
+        border-radius: 4px !important;
+        border-left: 1px solid var(--border);
+      }
+    }
+  </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER & NAV -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="resilience-logo.png" alt="Resilience Fitness" style="height:48px;width:auto;display:block;" /></a>
+        <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+      <div class="nav-ctas">
+        <a href="#" class="cta-link">Book a Class</a>
+        <a href="#register" class="cta-button">Join Revival Week</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Unlimited Free Classes – Feb 16 to Feb 22</h2>
+        <h1>Revival Week Is Back!</h1>
+        <p>You've heard the hype – now it's time to try it! This is group training the way it ought to be. See details below.</p>
+        <a href="#register" class="cta-button">Register Now!</a>
+      </div>
+      <div class="hero-image" style="background:none;border:none;overflow:hidden;padding:0;">
+        <img src="hero-runner.jpg" alt="Resilience Fitness Revival Week" style="width:100%;height:100%;object-fit:cover;border-radius:4px;filter:grayscale(100%) contrast(1.1);" />
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED SECTION -->
+    <section class="whats-included">
+      <div class="section-header">
+        <h2>What's Included</h2>
+        <h3>Any Class, Any Location</h3>
+        <p>Try Any Of Our Most Popular Strength, Conditioning, And Speciality Classes Including:</p>
+      </div>
+
+      <div class="class-grid">
+        <div class="class-card">
+          <div class="class-card-image">[Photo Placeholder – 16:9]</div>
+          <div class="class-card-content">
+            <h4>Hyrox Revival 2.0</h4>
+            <p>Led by Resilience Founders-Owners, Josh & Andrew. High energy from start to finish to mimic the real HYROX environment. Expect full equipment, lots of HYROX zones, and race-style intensity every single session.</p>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-card-image">[Photo Placeholder – 16:9]</div>
+          <div class="class-card-content">
+            <h4>Gameday</h4>
+            <p>Whether you're an aspiring athlete, or simply someone looking to elevate their fitness game, this class is designed to enhance your strength, power, agility, and overall athletic performance!</p>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-card-image">[Photo Placeholder – 16:9]</div>
+          <div class="class-card-content">
+            <h4>Survivor</h4>
+            <p>The ultimate Hybrid training that combines barbell training with high-intensity conditioning to make you ready for anything.</p>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-card-image">[Photo Placeholder – 16:9]</div>
+          <div class="class-card-content">
+            <h4>EPOX-75</h4>
+            <p>EPOX is designed to help you build strength, improve muscle definition, and enhance overall athletic performance through structured barbell training and comprehensive conditioning workouts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION SECTION -->
+    <section class="registration" id="register">
+      <div class="registration-container">
+        <div class="registration-text">
+          <h2>Revival Week Registration</h2>
+          <p>Revival week is a limited time offer that is only valid from Feb 16 2026 to Feb 22, 2026. This deal is only available to new clients.</p>
+
+          <div class="registration-steps">
+            <h3>How Get Started:</h3>
+            <ol>
+              <li>Fill out the form.</li>
+              <li>Keep an eye out for an email in your inbox confirming you have registered for Revival Week.</li>
+              <li>Receive your Mindbody confirmation & book your classes.</li>
+            </ol>
+          </div>
+
+          <p class="registration-disclaimer">This deal is only available to new clients & cannot be combined with any other intro offers.</p>
+        </div>
+
+        <form class="registration-form" action="#" method="POST">
+          <h3>Sign Me Up For Revival Week!</h3>
+          <p>Yes! Please sign me up for Revival Week.</p>
+
+          <div class="form-group">
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Last Name *</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Phone (Canadian) *</label>
+            <div class="phone-group">
+              <div class="phone-prefix">🇨🇦 +1</div>
+              <input type="tel" name="phone" placeholder="(XXX) XXX-XXXX" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group checkbox">
+            <input type="checkbox" id="sms-consent" name="sms_consent" required>
+            <label for="sms-consent">By submitting this form, you consent to receive communications from Resilience Fitness via SMS and WhatsApp, including reminders, updates, and special offers. You may also receive direct messages from our coaching team. Consent is not a condition of purchase. Msg & data rates may apply. Frequency varies. Unsubscribe anytime by replying STOP.</label>
+          </div>
+
+          <button type="submit" class="form-submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Memberships</h4>
+          <ul>
+            <li><a href="#">Unlimited Classes</a></li>
+            <li><a href="#">Class Passes</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Refer a Friend</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="#">East York</a></li>
+            <li><a href="#">Durham</a></li>
+            <li><a href="#">Hours</a></li>
+            <li><a href="#">Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Hyrox</h4>
+          <ul>
+            <li><a href="#">Hyrox Training</a></li>
+            <li><a href="#">Competition</a></li>
+            <li><a href="#">Athletes</a></li>
+            <li><a href="#">Results</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Resilience Fitness. All rights reserved. | <a href="#" style="color: inherit; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='inherit'">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

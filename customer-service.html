@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Need help? Resilience Fitness client care is available 24/7 via our chatbot, or reach our client care team by phone or email.">
+  <link rel="canonical" href="https://resiliencefitness.ca/customer-service/" />
+  <title>Customer Service | Resilience Fitness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--dark);
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--dark);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 16px 40px;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-resil {
+      color: var(--lime);
+    }
+
+    .logo-ience {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--lime);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+      background: transparent;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+
+    .btn-lime {
+      background-color: var(--lime);
+      color: var(--black);
+      border: none;
+      padding: 12px 28px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .btn-lime:hover {
+      background: #d4f548;
+      transform: translateY(-1px);
+    }
+
+    /* PAGE HEADER SECTION */
+    .page-header {
+      padding-top: 100px;
+      padding-bottom: 60px;
+      background-color: var(--dark);
+      text-align: left;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .page-header h1 {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* CONTACT CARD SECTION */
+    .contact-card-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 80px 0;
+    }
+
+    .contact-card {
+      background-color: var(--card);
+      border: 2px solid var(--lime);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-card-photo {
+      width: 200px;
+      height: 280px;
+      background-color: #0d0d0d;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .contact-card h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-card .title {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-card-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-card-links a {
+      color: var(--lime);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .contact-card-links a:hover {
+      color: white;
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      margin: 100px 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: white;
+      letter-spacing: 0.3px;
+    }
+
+    label .required {
+      color: var(--lime);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      background-color: #0d0d0d;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: var(--font);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--lime);
+      box-shadow: 0 0 0 2px rgba(200, 241, 53, 0.1);
+    }
+
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C8F135' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-submit {
+      background-color: var(--lime);
+      color: var(--black);
+      border: none;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.5px;
+      width: 100%;
+    }
+
+    .form-submit:hover {
+      background-color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(200, 241, 53, 0.2);
+    }
+
+    /* ADDITIONAL CONTACT INFO */
+    .additional-contact {
+      margin: 100px 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .additional-contact h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .contact-method {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .contact-method p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-method a {
+      color: var(--lime);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      transition: color 0.2s;
+      display: block;
+    }
+
+    .contact-method a:hover {
+      color: white;
+    }
+
+    .hours-note {
+      background-color: rgba(200, 241, 53, 0.05);
+      border: 1px solid rgba(200, 241, 53, 0.2);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--black);
+      border-top: 1px solid var(--border);
+      margin-top: 120px;
+      padding: 60px 40px 40px;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-column a:hover {
+      color: var(--lime);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--lime);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 20px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .nav-ctas {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-ctas button,
+      .nav-ctas a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .page-header {
+        padding: 80px 20px 40px;
+      }
+
+      .page-header h1 {
+        font-size: 36px;
+      }
+
+      .page-header p {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 0 20px;
+      }
+
+      .contact-card {
+        padding: 30px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-methods {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .footer-bottom-links a {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 28px;
+      }
+
+      .contact-card h2 {
+        font-size: 24px;
+      }
+
+      .form-section h2 {
+        font-size: 28px;
+      }
+
+      .additional-contact h3 {
+        font-size: 24px;
+      }
+
+      .footer-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>CUSTOMER SERVICE</h1>
+    <p>For the fastest answer, chat with us 24/7 using the chat bubble below. You can also reach our client care team directly by phone or email.</p>
+  </section>
+
+  <!-- CHAT CTA -->
+  <div style="max-width:700px;margin:0 auto 60px;padding:0 40px;">
+    <div style="background:#161616;border:2px solid #C8F135;border-radius:12px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:22px;font-weight:700;color:#C8F135;letter-spacing:-0.5px;margin-bottom:8px;">💬 Chat with us — available 24/7</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;">Get instant answers about classes, memberships, billing, and more. Our AI-powered assistant knows everything about Resilience Fitness.</div>
+      </div>
+      <button onclick="document.getElementById('rf-chat-bubble')?.click()" style="background:#C8F135;color:#0A0A0A;border:none;padding:14px 28px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:3px;cursor:pointer;white-space:nowrap;">Start Chat</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+      <div style="background:#161616;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:24px;text-align:center;">
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;">Call Us</div>
+        <a href="tel:4378269080" style="color:#C8F135;font-size:18px;font-weight:700;text-decoration:none;">(437) 826-9080</a>
+      </div>
+      <div style="background:#161616;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:24px;text-align:center;">
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;">Email Us</div>
+        <a href="mailto:contact@resiliencefitness.ca" style="color:#C8F135;font-size:15px;font-weight:700;text-decoration:none;">contact@resiliencefitness.ca</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- MEMBER REQUESTS FORM -->
+    <section class="form-section">
+      <h2>MEMBER REQUESTS</h2>
+      <form action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject <span class="required">*</span></label>
+          <select id="subject" name="subject" required>
+            <option value="">How Can We Help?</option>
+            <option value="membership">Membership Inquiry</option>
+            <option value="booking">Class Booking</option>
+            <option value="billing">Billing Question</option>
+            <option value="freeze-cancel">Freeze/Cancel Request</option>
+            <option value="feedback">General Feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message <span class="required">*</span></label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Submit Form</button>
+      </form>
+    </section>
+
+    <!-- ADDITIONAL CONTACT INFO -->
+    <section class="additional-contact">
+      <h3>OTHER WAYS TO REACH US</h3>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <p>Email</p>
+          <a href="mailto:contact@resiliencefitness.ca">contact@resiliencefitness.ca</a>
+        </div>
+        <div class="contact-method">
+          <p>Phone</p>
+          <a href="tel:(437)826-9080">(437) 826-9080</a>
+        </div>
+        <div class="contact-method">
+          <p>East York</p>
+          <a href="https://maps.google.com/maps?q=Resilience+Fitness+East+York" target="_blank" rel="noopener">1400 O'Connor Drive, East York, ON</a>
+        </div>
+        <div class="contact-method">
+          <p>Durham</p>
+          <a href="https://maps.google.com/maps?q=Resilience+Fitness+Durham" target="_blank" rel="noopener">72 Orchard Rd, Ajax, ON</a>
+        </div>
+      </div>
+      <div class="hours-note">
+        <p>We respond to all inquiries within 1–2 business days.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about-us.html">Our Story</a></li>
+            <li><a href="classes.html">Our Classes</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Memberships</h4>
+          <ul>
+            <li><a href="/membership/">Membership Plans</a></li>
+            <li><a href="/membership/">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="locations-main.html">All Locations</a></li>
+            <li><a href="locations-main.html">Find a Studio</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>HYROX</h4>
+          <ul>
+            <li><a href="hyrox-workouts.html">HYROX Workouts</a></li>
+            <li><a href="hyrox-workouts.html">Training Guide</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 Resilience Fitness</div>
+        <div class="footer-bottom-links">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

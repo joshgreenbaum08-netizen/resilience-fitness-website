@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilience HYROX Team — Official HYROX Athletes Toronto | Resilience Fitness</title>
+    <meta name="description" content="Meet the official Resilience HYROX Team. Josh and Andrew have assembled a team of dedicated HYROX athletes representing Resilience Fitness at races across Canada.">
+    <link rel="canonical" href="https://resiliencefitness.ca/hyrox-team/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --lime: #C8F135;
+            --black: #0A0A0A;
+            --dark: #111111;
+            --card: #161616;
+            --border: rgba(255,255,255,0.08);
+            --text-muted: rgba(255,255,255,0.6);
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Barlow Condensed', sans-serif;
+            background: var(--black);
+            color: white;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 72px;
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 900;
+            text-decoration: none;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .nav-logo .lime {
+            color: var(--lime);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--lime);
+        }
+
+        .nav-ctas {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 2px;
+            transition: all 0.2s;
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--lime);
+            color: var(--lime);
+        }
+
+        .btn-primary {
+            background: var(--lime);
+            color: var(--black);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #d4f548;
+            transform: translateY(-1px);
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: white;
+            border: 1px solid var(--lime);
+        }
+
+        .btn-dark:hover {
+            background: var(--lime);
+            color: var(--black);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            padding-top: 72px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            filter: grayscale(100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .overline {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--lime);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 40px;
+        }
+
+        section.dark {
+            background: var(--dark);
+        }
+
+        section.centered {
+            text-align: center;
+        }
+
+        section.lime-bg {
+            background: var(--lime);
+            color: var(--black);
+        }
+
+        section h2 {
+            font-size: 48px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        /* TEAM GRID */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--lime);
+        }
+
+        .team-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .team-card-content {
+            padding: 30px;
+        }
+
+        .team-card-name {
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .team-card-location {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--lime);
+            margin-bottom: 12px;
+        }
+
+        .team-card-bio {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* STATS STRIP */
+        .stats-strip {
+            background: var(--black);
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            border-right: 1px solid var(--border);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--lime);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SPLIT SECTION */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .split-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .split-section p {
+            margin-bottom: 30px;
+        }
+
+        .split-ctas {
+            display: flex;
+            gap: 20px;
+        }
+
+        .split-image {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+            border: 1px solid var(--border);
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            padding: 80px 40px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10,10,10,0.6);
+            z-index: 1;
+        }
+
+        .cta-banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-banner h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-banner-sub {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+            max-width: 1400px;
+        }
+
+        .footer-col h3 {
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--lime);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 0 30px;
+            }
+
+            .nav-center {
+                gap: 30px;
+            }
+
+            .nav-links {
+                gap: 25px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            section {
+                padding: 80px 30px;
+            }
+
+            section h2 {
+                font-size: 36px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .stats-strip {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                padding: 50px 30px;
+            }
+
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat-item:nth-child(2n) {
+                border-right: none;
+            }
+
+            .stat-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .split-image {
+                height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            .nav-center {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                margin: 15px 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .nav-ctas {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .hero {
+                padding-top: 0;
+                height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-sub {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stats-strip {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 40px 20px;
+            }
+
+            .stat-item {
+                border-bottom: 1px solid var(--border);
+                border-right: none;
+                padding-bottom: 20px;
+            }
+
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 11px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-banner {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+    <!-- NAV -->
+      <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+    <!-- HERO -->
+    <section class="hero" style="background-image: url('photo-run2.jpg');">
+        <div class="hero-content">
+            <div class="overline">Official HYROX Team</div>
+            <h1>THE RESILIENCE HYROX TEAM</h1>
+            <p class="hero-sub">What's up guys. It's Josh and Andrew here! We're pumped to introduce the official Resilience HYROX Team.</p>
+        </div>
+    </section>
+
+    <!-- MEET THE TEAM -->
+    <section class="dark centered">
+        <h2>MEET THE TEAM</h2>
+        <p class="section-intro">The Resilience HYROX Team is made up of dedicated athletes from our Toronto and Durham communities who represent Resilience at HYROX races across Canada. From first-timers chasing a finish line to podium contenders — this is the team.</p>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-card-image">[PHOTO PLACEHOLDER]</div>
+                <div class="team-card-content">
+                    <div class="team-card-name">Team Member Name</div>
+                    <div class="team-card-location">East York</div>
+                    <p class="team-card-bio">[BIO PLACEHOLDER]</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-image">[PHOTO PLACEHOLDER]</div>
+                <div class="team-card-content">
+                    <div class="team-card-name">Team Member Name</div>
+                    <div class="team-card-location">Durham</div>
+                    <p class="team-card-bio">[BIO PLACEHOLDER]</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-image">[PHOTO PLACEHOLDER]</div>
+                <div class="team-card-content">
+                    <div class="team-card-name">Team Member Name</div>
+                    <div class="team-card-location">East York</div>
+                    <p class="team-card-bio">[BIO PLACEHOLDER]</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-image">[PHOTO PLACEHOLDER]</div>
+                <div class="team-card-content">
+                    <div class="team-card-name">Team Member Name</div>
+                    <div class="team-card-location">Durham</div>
+                    <p class="team-card-bio">[BIO PLACEHOLDER]</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-image">[PHOTO PLACEHOLDER]</div>
+                <div class="team-card-content">
+                    <div class="team-card-name">Team Member Name</div>
+                    <div class="team-card-location">East York</div>
+                    <p class="team-card-bio">[BIO PLACEHOLDER]</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-image">[PHOTO PLACEHOLDER]</div>
+                <div class="team-card-content">
+                    <div class="team-card-name">Team Member Name</div>
+                    <div class="team-card-location">Durham</div>
+                    <p class="team-card-bio">[BIO PLACEHOLDER]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WANT TO JOIN -->
+    <section class="lime-bg centered">
+        <h2>THINK YOU'VE GOT WHAT IT TAKES?</h2>
+        <p class="section-intro">We're always looking for dedicated athletes to represent Resilience at HYROX events. If you're training with us and competing in HYROX, reach out — we'd love to have you on the team.</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="mailto:contact@resiliencefitness.ca" class="btn btn-dark">Get in Touch</a>
+            <a href="/hyrox-workouts/" class="btn btn-dark">Train With Us</a>
+        </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+        <div class="stat-item">
+            <div class="stat-number">#1</div>
+            <div class="stat-label">HYROX Gym Toronto</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Podium Spots — HYROX Toronto 2025</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">70+</div>
+            <div class="stat-label">Durham Athletes sent to HYROX Toronto</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Locations — East York & Durham</div>
+        </div>
+    </div>
+
+    <!-- TRAIN WITH THE TEAM -->
+    <section class="dark">
+        <div class="split-section">
+            <div>
+                <h2>TRAIN WITH THE TEAM</h2>
+                <p>Ready to train at the same facility as the Resilience HYROX Team? Join us at East York or Durham and get access to the same programming, coaches, and community that produces podium athletes.</p>
+                <div class="split-ctas">
+                    <a href="/membership/drop-in-class/" class="btn btn-primary">Try 10 Days for $24.95</a>
+                    <a href="/class/hyrox-training-club/" class="btn btn-outline">View HYROX Classes</a>
+                </div>
+            </div>
+            <div class="split-image" style="background-image: url('photo-sandbag.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner" style="background-image: url('cta-iron.jpg');">
+        <div class="cta-banner-content">
+            <h2>SHOW UP.</h2>
+            <p class="cta-banner-sub">New to Resilience? Try unlimited classes for 10 days for $24.95 + HST.</p>
+            <a href="/membership/drop-in-class/" class="btn btn-primary">Get This Deal</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Brand</h3>
+                <p style="font-size: 14px; color: var(--text-muted);">Resilience Fitness. Fitness for everyone.</p>
+            </div>
+            <div class="footer-col">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="/about-us/">About Us</a></li>
+                    <li><a href="/customer-service/">Customer Service</a></li>
+                    <li><a href="/resilience-fitness-policies-membership-terms/">Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Memberships</h3>
+                <ul>
+                    <li><a href="/membership/unlimited-annual/">Unlimited Annual</a></li>
+                    <li><a href="/membership/unlimited/">Unlimited Monthly</a></li>
+                    <li><a href="/membership/6-month-unlimited/">6-Month Unlimited</a></li>
+                    <li><a href="/membership/drop-in-class/">Drop-In Classes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Locations</h3>
+                <ul>
+                    <li><a href="/east-york-facility/">East York</a></li>
+                    <li><a href="/durham-facility/">Durham</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>HYROX</h3>
+                <ul>
+                    <li><a href="/hyrox-workouts/">HYROX Workouts</a></li>
+                    <li><a href="/resilience-hyrox-league/">HYROX League</a></li>
+                    <li><a href="/hyrox-team/">HYROX Team</a></li>
+                    <li><a href="/hyrox-gear-guide-2025/">Gear Guide 2025</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>contact@resiliencefitness.ca | (437) 826-9080</p>
+            <p style="margin-top: 15px;">&copy; 2025 Resilience Fitness. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

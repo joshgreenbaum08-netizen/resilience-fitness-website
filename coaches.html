@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the Resilience Fitness coaching team — over 50 years of combined experience guiding members to achieve their fitness goals.">
+  <link rel="canonical" href="https://resiliencefitness.ca/coaches/" />
+  <title>Coaches | Resilience Fitness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    body { font-family: var(--font); background: var(--dark); color: white; line-height: 1.6; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 48px; height: 72px;
+      background: rgba(10,10,10,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); box-sizing: border-box;
+    }
+    .nav-logo img { height: 48px; width: auto; display: block; }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a {
+      font-family: var(--font); font-size: 13px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      padding: 8px 14px; display: flex; align-items: center; gap: 5px;
+      transition: color 0.2s; white-space: nowrap;
+    }
+    .nav-links > li > a:hover { color: var(--lime); }
+    .nav-links > li > a .arrow { font-size: 7px; opacity: 0.55; transition: transform 0.2s; }
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg); }
+    .nav-links > li > .dropdown {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #161616; border: 1px solid var(--border);
+      border-radius: 6px; min-width: 185px; padding: 8px 0;
+      list-style: none; box-shadow: 0 16px 40px rgba(0,0,0,0.65); z-index: 2000;
+    }
+    .nav-links > li:hover > .dropdown { display: block; }
+    .nav-links .dropdown li a {
+      display: block; padding: 10px 20px; font-family: var(--font);
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      text-decoration: none; transition: color 0.2s, background 0.2s; white-space: nowrap;
+    }
+    .nav-links .dropdown li a:hover { color: var(--lime); background: rgba(200,241,53,0.06); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .btn {
+      font-family: var(--font); font-size: 12px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase; padding: 10px 22px;
+      border-radius: 3px; cursor: pointer; transition: all 0.2s;
+      display: inline-block; text-decoration: none; white-space: nowrap;
+    }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; background: transparent; }
+    .btn-outline:hover { border-color: #fff; }
+    .btn-primary { background: var(--lime); color: var(--black); border: none; }
+    .btn-primary:hover { background: #d4f542; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 120px 40px 60px; max-width: 1400px; margin: 0 auto;
+    }
+    .page-header h1 {
+      font-size: 56px; font-weight: 700; color: var(--lime);
+      margin-bottom: 16px; letter-spacing: -1px;
+    }
+    .page-header p {
+      font-size: 18px; color: var(--text-muted); max-width: 600px; line-height: 1.7;
+    }
+
+    /* ── COACHES LIST ── */
+    .coaches-list {
+      max-width: 1100px; margin: 0 auto; padding: 0 40px 80px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+
+    .coach-card {
+      background: var(--card); border: 2px solid transparent;
+      border-radius: 12px; display: grid;
+      grid-template-columns: 320px 1fr;
+      overflow: hidden; transition: border-color 0.3s;
+    }
+    .coach-card:hover { border-color: var(--lime); }
+
+    .coach-photo {
+      width: 100%; height: 100%; min-height: 320px;
+      object-fit: cover; object-position: top center;
+      filter: grayscale(100%); display: block;
+      transition: filter 0.3s;
+    }
+    .coach-card:hover .coach-photo { filter: grayscale(60%); }
+
+    .coach-photo-placeholder {
+      width: 100%; min-height: 320px; background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 14px; letter-spacing: 1px;
+    }
+
+    .coach-info { padding: 36px 40px; display: flex; flex-direction: column; gap: 16px; }
+
+    .coach-name {
+      font-size: 28px; font-weight: 700; color: var(--lime);
+      letter-spacing: -0.5px; line-height: 1;
+    }
+
+    .coach-role {
+      font-size: 13px; color: var(--text-muted); font-weight: 500;
+      letter-spacing: 0.5px; margin-top: -8px;
+    }
+
+    .coach-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+    }
+    .coach-tag {
+      background: rgba(200,241,53,0.08); border: 1px solid rgba(200,241,53,0.2);
+      color: var(--lime); font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    .coach-bio {
+      font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.7;
+    }
+    .coach-bio p + p { margin-top: 12px; }
+
+    /* ── FOUNDERS BADGE ── */
+    .founders-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(200,241,53,0.1); border: 1px solid rgba(200,241,53,0.3);
+      color: var(--lime); font-size: 10px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 4px;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--black); text-align: center;
+      padding: 80px 40px; border-top: 1px solid var(--border);
+    }
+    .cta-strip h2 { font-size: 36px; font-weight: 700; color: var(--lime); margin-bottom: 12px; }
+    .cta-strip p { font-size: 16px; color: var(--text-muted); margin-bottom: 32px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black); border-top: 1px solid var(--border);
+      padding: 60px 40px 40px;
+    }
+    .footer-container { max-width: 1400px; margin: 0 auto; }
+    .footer-columns {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-column h4 {
+      font-size: 14px; font-weight: 700; color: white;
+      margin-bottom: 16px; letter-spacing: 0.5px;
+    }
+    .footer-column ul { list-style: none; }
+    .footer-column li { margin-bottom: 10px; }
+    .footer-column a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-column a:hover { color: var(--lime); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .footer-bottom-links a {
+      color: var(--text-muted); text-decoration: none;
+      margin-left: 24px; transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--lime); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .coach-card { grid-template-columns: 1fr; }
+      .coach-photo { min-height: 260px; height: 260px; }
+      .coach-photo-placeholder { min-height: 260px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 100px 20px 40px; }
+      .page-header h1 { font-size: 36px; }
+      .coaches-list { padding: 0 20px 60px; }
+      .coach-info { padding: 24px 20px; }
+      .footer-columns { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>MEET YOUR COACHES</h1>
+    <p>With over 50 years of combined experience, we're here to guide you and help you achieve your fitness goals.</p>
+  </section>
+
+  <!-- COACHES -->
+  <div class="coaches-list">
+
+    <!-- Andrew Gillis -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/07/Untitled-design-14.jpg" alt="Andrew Gillis" loading="lazy">
+      <div class="coach-info">
+        <div class="founders-badge">★ Co-Founder</div>
+        <div class="coach-name">ANDREW GILLIS</div>
+        <div class="coach-role">Head Coach & Co-Founder</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Hybrid Training</span>
+          <span class="coach-tag">HYROX</span>
+          <span class="coach-tag">Getting Back in Shape</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Andrew</strong> is a former semi-pro quarterback with experience in both the CIS and European football leagues. Known for his ability to connect with members, he brings an energy that inspires and motivates every session.</p>
+          <p>As co-founder and head coach of Resilience, Andrew designs all of our workouts and oversees the vision, evolution, and delivery of our on-field training.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Joshua Greenbaum -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-26.jpg" alt="Joshua Greenbaum" loading="lazy">
+      <div class="coach-info">
+        <div class="founders-badge">★ Co-Founder</div>
+        <div class="coach-name">JOSHUA GREENBAUM</div>
+        <div class="coach-role">Coach & Co-Founder</div>
+        <div class="coach-tags">
+          <span class="coach-tag">CanFit Pro</span>
+          <span class="coach-tag">Certified HYROX Foundations</span>
+          <span class="coach-tag">DTS Kettlebell Certification</span>
+          <span class="coach-tag">Survivor · Rush · EPOX 75 · HYROX Training Club</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Josh</strong> is the quintessential example of passion meeting purpose. With a Bachelor of Education degree, Josh has a huge passion for education as well as teaching. Beginning training at the age of 15 and never looking back since.</p>
+          <p>His expertise lies in strength and mobility, fostering an environment where each member can discover the athlete within. Josh's commitment to fitness is matched only by his dedication to our community, where he's a constant force of encouragement and a mentor to aspiring athletes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cara Gillis -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/07/Untitled-design-34.jpg" alt="Cara Gillis" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">CARA GILLIS</div>
+        <div class="coach-role">General Manager</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Strength Training</span>
+          <span class="coach-tag">Hybrid Fitness</span>
+          <span class="coach-tag">Women's Fitness</span>
+        </div>
+        <div class="coach-bio">
+          <p>Cara is the heart and soul of Resilience. With an unwavering commitment to the community, she plays a central role in making sure every member feels supported, welcomed, and taken care of from day one.</p>
+          <p>She has a deep passion for continuously improving the Resilience experience and ensuring that every detail — from communication to programming to member support — is handled with intention and care.</p>
+          <p>As General Manager, Cara is focused on keeping Resilience running at the highest standard possible while making sure every member has the best experience, the best results, and a true sense of belonging inside the Resilience community.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lanny Korbee -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-22.jpg" alt="Lanny Korbee" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">LANNY KORBEE</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Strive Life Fitness Education</span>
+          <span class="coach-tag">Strength-U</span>
+          <span class="coach-tag">GAINZ</span>
+          <span class="coach-tag">Endurox</span>
+          <span class="coach-tag">Primal Flow</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Lanny</strong> is a former competitive ice hockey player with a proven background in strength and conditioning training. His coaching emphasizes helping members develop both the physical performance they want, and the mental resilience to attain it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Robbie Zicari -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-16.jpg" alt="Robbie Zicari" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">ROBBIE ZICARI</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Certified Personal Trainer</span>
+          <span class="coach-tag">Certified HYROX Foundations</span>
+          <span class="coach-tag">Strength-U</span>
+          <span class="coach-tag">GAINZ</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Robbie</strong> is a certified personal trainer (NASM) and a Level 2 Titleist Performance Institute Golf Fitness Professional at Mill Run Golf Club. A graduate of Bryan College's Health and Fitness program with honours, he combines expertise in golf-specific training with a background in bodybuilding, including a 1st place finish in his weight class at the 2015 Ontario championships.</p>
+          <p>Robbie focuses on proper body mechanics and movement patterns to help clients reach their individual goals.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nikki Plante -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-28.jpg" alt="Nikki Plante" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">NIKKI PLANTE</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-bio">
+          <p>Coach Nikki fell in love with fitness during COVID and never looked back. What started as a personal commitment quickly turned into a deep passion for training, growth, and helping others discover what they're capable of. She brings high energy, positivity, and purpose into every session.</p>
+          <p>She is deeply passionate about coaching, constant improvement, and taking on new challenges. Very active in HYROX and running, Nikki understands what it means to train with intention, stay disciplined, and push beyond perceived limits.</p>
+          <p>Currently a leader in lululemon running programs, Coach Nikki is focused on building confident, capable athletes through smart programming, supportive coaching, and an environment that inspires long-term consistency, performance, and resilience.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meron Ogbae -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-27.jpg" alt="Meron Ogbae" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">MERON OGBAE</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">GAMEDAY</span>
+          <span class="coach-tag">RUSH</span>
+          <span class="coach-tag">SHRED</span>
+          <span class="coach-tag">Strive Life Education</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Meron</strong> embodies the true spirit of fitness, leading with relentless energy, discipline, and heart. With a background in competitive soccer, Meron brings the intensity, teamwork, and mental resilience forged on the field into every class they coach.</p>
+          <p>Meron's approach is dynamic, engaging, and purpose-driven — creating an environment where clients work hard, stay motivated, and genuinely enjoy the process. Deeply committed to building a supportive and inclusive community, Meron is known for motivating individuals at every level to show up, stay present, and chase their goals with confidence.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shyla Davenport -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-15.jpg" alt="Shyla Davenport" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">SHYLA DAVENPORT</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-bio">
+          <p><strong>Coach Shyla</strong> brings a strong passion for teaching, learning, and leadership into every session. With a Bachelor of Education, she understands how people learn best and how to coach with clarity, patience, and purpose — creating an environment where athletes feel confident and supported as they grow.</p>
+          <p>She is a dedicated HYROX and strength coach, focused on helping athletes build real strength, improve performance, and move with intention. Shyla blends technical coaching with encouragement and accountability to help every athlete reach their potential.</p>
+          <p>In addition to coaching at Resilience, Shyla also trains aspiring personal trainers at GoodLife, helping them prepare for and earn their CanFit Pro certification.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jazz Lindsey -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-24.jpg" alt="Jazz Lindsey" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">JAZZ LINDSEY</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-bio">
+          <p>With a background in collegiate football at the University of Guelph, Jazz brings a quarterback's mindset to every session — disciplined, focused, and built for performance. He understands what it means to prepare with purpose, lead under pressure, and consistently show up to put the work in.</p>
+          <p>He specializes in athletic training and lifting, with a strong focus on building real, usable strength. His coaching philosophy is simple: train with intent, move well, and get stronger in ways that translate to both sport and everyday life.</p>
+          <p>Training with Jazz is about developing strength that lasts, building confidence through movement, and creating habits that support long-term performance, resilience, and longevity.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moe Elleithy -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-23.jpg" alt="Moe Elleithy" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">MOE ELLEITHY</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Strive Life Fitness Certification</span>
+          <span class="coach-tag">Certified HYROX Foundations</span>
+          <span class="coach-tag">Shred</span>
+          <span class="coach-tag">HYROX Training Club</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Moe</strong> has a multi-sport background in soccer, basketball, football, and table tennis, giving him a broad understanding of athletic movement. With a focus on agility drills and proprioception, he helps athletes sharpen both physical quickness and mental reaction.</p>
+          <p>Drawing on his engineering background, Moe brings a precise and analytical approach to coaching, ensuring each workout builds strength, coordination, and performance.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daniel-Lee Hunte -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/07/Untitled-design-21.jpg" alt="Daniel-Lee Hunte" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">DANIEL-LEE HUNTE</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Personal Training</span>
+          <span class="coach-tag">Hybrid Training</span>
+          <span class="coach-tag">HYROX</span>
+        </div>
+        <div class="coach-bio">
+          <p><strong>Coach Daniel-Lee</strong> is a certified personal trainer with a background in strength and conditioning. Known for his attention to detail, he tracks progress closely and gives clear, constructive feedback that helps members build lasting results.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jada Singh -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-29.jpg" alt="Jada Singh" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">JADA SINGH</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Functional Training</span>
+          <span class="coach-tag">HYROX Prep</span>
+          <span class="coach-tag">Athletic Performance</span>
+        </div>
+        <div class="coach-bio">
+          <p>With a background in varsity-level lacrosse and years of hands-on coaching, Jada brings an athlete's mindset to every session. She knows what it means to grind, to push past limits, and to keep showing up — even when it's hard.</p>
+          <p>Her coaching philosophy is simple: get 1% better every day. Whether you're a seasoned athlete or just getting started, she believes everyone has an athlete inside them — and movement is a lifelong game.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Julia Listro -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-31.jpg" alt="Julia Listro" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">JULIA LISTRO</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-bio">
+          <p><strong>Coach Julia</strong> comes from a competitive soccer background. Growing up as an athlete instilled the value of fitness, consistency, and mental toughness. Leading by example on and off the field has driven her to help others discover their athletic potential through coaching.</p>
+          <p>As a certified personal trainer and fitness class instructor since 2020, she coaches with a focus on hybrid training and HYROX-style conditioning. Her approach is centered on building a strong athletic foundation that supports performance, confidence, and longevity — within a community that supports, challenges, and cheers one another all the way to the finish line.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vlad Zamrii -->
+    <div class="coach-card">
+      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-53.png" alt="Vlad Zamrii" loading="lazy">
+      <div class="coach-info">
+        <div class="coach-name">VLAD ZAMRII</div>
+        <div class="coach-role">Coach</div>
+        <div class="coach-bio">
+          <p><strong>Coach Vlad</strong> is a multidisciplinary coach with experience working with youth, adult clients, and competitive sports teams, including leading off-season conditioning for athletic programs. His coaching style blends hands-on athletic experience with a strong foundation in safety, education, and functional movement.</p>
+          <p>With a background in boxing, long-distance running, and current training for Spartan and Tough Mudder–style events, Vlad is deeply passionate about functional fitness that carries over into real life. His experience as a Certified First Aid Instructor and graduate of a professional firefighting academy shapes his focus on resilience, preparedness, and practical strength.</p>
+          <p>Vlad's goal is to help clients build confidence, strength, and capability that supports both daily life and athletic performance.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <h2>READY TO TRAIN WITH US?</h2>
+    <p>Try unlimited classes for 10 days and experience the Resilience difference.</p>
+    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" class="btn btn-primary" style="font-size:14px;padding:14px 36px;">Get 10 Days for $24.95</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about-us.html">Our Story</a></li>
+            <li><a href="classes.html">Our Classes</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Memberships</h4>
+          <ul>
+            <li><a href="/membership/">Membership Plans</a></li>
+            <li><a href="/membership/">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="locations-main.html">All Locations</a></li>
+            <li><a href="east-york-facility.html">East York</a></li>
+            <li><a href="durham-facility.html">Durham</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>HYROX</h4>
+          <ul>
+            <li><a href="hyrox-workouts.html">HYROX Workouts</a></li>
+            <li><a href="hyrox-workouts.html">Training Guide</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 Resilience Fitness</div>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

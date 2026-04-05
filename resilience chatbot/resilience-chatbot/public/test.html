@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resilience Fitness Chatbot — Test Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f0f0f;
+      color: #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .test-content {
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #C4D031;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #888;
+      font-size: 1.1rem;
+    }
+    .arrow {
+      position: fixed;
+      bottom: 100px;
+      right: 100px;
+      color: #C4D031;
+      font-size: 1.2rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="test-content">
+    <h1>Resilience Fitness</h1>
+    <p>Chatbot test page — click the bubble in the bottom-right corner.</p>
+  </div>
+  <div class="arrow">↘ Try the chat</div>
+
+  <!-- Resilience Chatbot Widget -->
+  <script src="/widget.js"></script>
+</body>
+</html>
