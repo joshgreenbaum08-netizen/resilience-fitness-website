@@ -1,0 +1,162 @@
+/* ============================================
+   RESILIENCE FITNESS — COMPLETE SITE OVERHAUL
+   Paste this into WPCodeBox 2 as a CSS snippet
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+
+/* BASE */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  background-color: #0A0A0A !important;
+  color: #ffffff !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6, .brxe-heading {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  letter-spacing: -1px;
+  color: #ffffff !important;
+}
+
+p, .brxe-text, .brxe-basic-text {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+/* HERO */
+.bm-hero-10__content {
+  position: relative !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.bm-hero-10__content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.80) 0%,
+    rgba(0,0,0,0.5) 60%,
+    rgba(0,0,0,0.15) 100%
+  );
+  z-index: 0;
+}
+
+.bm-hero-10__content > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* HERO HEADING — MASSIVE TWO-TONE */
+.bm-hero-10__heading {
+  font-size: clamp(80px, 12vw, 160px) !important;
+  line-height: 0.9 !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+}
+
+.bm-hero-10__heading span {
+  color: #C8F135 !important;
+}
+
+/* NAVIGATION */
+header, .site-header {
+  background-color: #0A0A0A !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+nav a, .brxe-nav-menu a, header a {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  transition: color 0.2s ease !important;
+}
+
+nav a:hover, .brxe-nav-menu a:hover {
+  color: #C8F135 !important;
+}
+
+/* BUTTONS */
+.brxe-button, .brxe-button a, .btn {
+  background-color: #C8F135 !important;
+  color: #0A0A0A !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border: none !important;
+  border-radius: 2px !important;
+  padding: 14px 32px !important;
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+.brxe-button:hover, .brxe-button a:hover {
+  background-color: #d4f548 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* SECTIONS */
+.brxe-section, section {
+  padding-top: clamp(60px, 8vw, 120px) !important;
+  padding-bottom: clamp(60px, 8vw, 120px) !important;
+}
+
+/* CARDS */
+.brxe-block, [class*="card"] {
+  background-color: #1a1a1a !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 4px !important;
+}
+
+/* PRESS LOGOS */
+[class*="featured"] img, [class*="press"] img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.6 !important;
+}
+
+/* REVIEWS */
+[class*="review"], [class*="testimonial"] {
+  background-color: #161616 !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  padding: 32px !important;
+  border-radius: 4px !important;
+}
+
+/* FOOTER */
+footer {
+  background-color: #050505 !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+footer a {
+  color: rgba(255,255,255,0.6) !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 13px !important;
+}
+
+footer a:hover { color: #C8F135 !important; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .bm-hero-10__heading {
+    font-size: clamp(50px, 12vw, 80px) !important;
+  }
+}

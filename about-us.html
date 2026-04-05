@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Our Story | Resilience Fitness</title>
+  <meta name="description" content="From Markham High School to Toronto's #1 HYROX Gym — the 10-year story of how Josh and Andrew built Resilience Fitness from the ground up.">
+  <link rel="canonical" href="https://resiliencefitness.ca/about-us/" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--black);
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-logo span {
+      color: var(--lime);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      flex: 1;
+      margin-left: 60px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--lime);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-outline {
+      padding: 12px 28px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+
+    .btn-lime {
+      padding: 12px 28px;
+      background-color: var(--lime);
+      color: var(--black);
+      border: none;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+
+    .btn-lime:hover {
+      background: #d4f548;
+      transform: translateY(-1px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding-top: 72px;
+      padding: 72px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: calc(100vh - 72px);
+    }
+
+    .hero-content h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+
+    .hero-content h1 {
+      font-size: 64px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+    }
+
+    .photo-placeholder {
+      background-color: var(--card);
+      border: 2px solid var(--lime);
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 4px;
+    }
+
+    /* TIMELINE SECTION */
+    .timeline-section {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline-section h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--lime);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .timeline-container {
+      position: relative;
+      padding: 0;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: var(--lime);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-left: 0;
+      margin-right: 50%;
+      padding-right: 40px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 50%;
+      margin-right: 0;
+      padding-left: 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background-color: var(--lime);
+      border: 3px solid var(--black);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .timeline-year {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--lime);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .timeline-title {
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: white;
+    }
+
+    .timeline-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .timeline-content p + p {
+      margin-top: 16px;
+    }
+
+    /* STATS BANNER */
+    .stats-section {
+      padding: 80px 40px;
+      background-color: var(--card);
+      margin: 80px 0;
+    }
+
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--lime);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .stat-item p {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 100px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cta-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .cta-content h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+
+    .cta-content h2 {
+      font-size: 48px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      color: var(--lime);
+    }
+
+    .cta-content > p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .cta-contact {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-contact p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    .cta-contact-info {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-contact-info a {
+      color: var(--lime);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .cta-contact-info a:hover {
+      color: white;
+    }
+
+    .cta-divider {
+      color: var(--text-muted);
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: var(--lime);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: none;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+
+    .btn-cta:hover {
+      background: #d4f548;
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 30px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-column h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-column a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+      font-weight: 400;
+    }
+
+    .footer-column a:hover {
+      color: var(--lime);
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .footer-brand .nav-logo {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 16px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--lime);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-ctas {
+        gap: 8px;
+      }
+
+      .btn-outline,
+      .btn-lime {
+        padding: 8px 16px;
+        font-size: 11px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 72px 20px 60px;
+        gap: 40px;
+      }
+
+      .hero-content h1 {
+        font-size: 40px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .photo-placeholder {
+        height: 400px;
+      }
+
+      .timeline-section {
+        padding: 80px 20px;
+      }
+
+      .timeline-container::before {
+        left: 20px;
+      }
+
+      .timeline-item::before {
+        left: 20px;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 60px;
+        margin-right: 0;
+        text-align: left;
+        padding-left: 20px;
+        padding-right: 0;
+      }
+
+      .timeline-year {
+        font-size: 20px;
+      }
+
+      .timeline-title {
+        font-size: 16px;
+      }
+
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .stat-item h3 {
+        font-size: 36px;
+      }
+
+      .cta-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .cta-content h2 {
+        font-size: 32px;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom-links a {
+        margin: 0 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 72px 16px 40px;
+      }
+
+      .hero-content h1 {
+        font-size: 28px;
+      }
+
+      .timeline-section {
+        padding: 60px 16px;
+      }
+
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 60px 16px;
+      }
+
+      .cta-content h2 {
+        font-size: 24px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .cta-contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+    <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>ABOUT RESILIENCE</h2>
+      <h1>OUR STORY SO FAR..</h1>
+      <p>The goal of Resilience has always been simple: Give our clients everything we've got—every class, every workout, every day—no matter the resources we had. Ten years later, that mindset hasn't changed.</p>
+      <a href="/membership/intro-offer" class="btn-lime btn-cta">Try 10 Days for $24.95</a>
+    </div>
+    <div style="height:600px;border-radius:4px;overflow:hidden;position:relative;">
+      <img
+        src="pictures/ourstory.jpg"
+        alt="Andrew and Josh — Resilience Fitness Founders"
+        style="height:100%;width:100%;object-fit:cover;object-position:center 40%;filter:grayscale(100%) brightness(0.9) contrast(1.15);transition:opacity 0.4s ease;"
+        onmouseover="this.src='pictures/kids picture.jpg'"
+        onmouseout="this.src='pictures/ourstory.jpg'"
+      />
+    </div>
+  </section>
+
+  <!-- TIMELINE SECTION -->
+  <section class="timeline-section">
+    <h2>OUR JOURNEY</h2>
+    <div class="timeline-container">
+      <!-- Timeline Item 1 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2001 – 2014</div>
+          <div class="timeline-title">MARKHAM HIGH SCHOOL</div>
+          <p>Josh and Andrew met in high school — one transferred in. They became friends quickly and stayed close throughout university, always keeping up to date with what was going on in each other's lives.</p>
+          <p>In their late 20s, while meeting for lunch regularly early in their careers, a question kept coming up: "What if we tried building something of our own?"</p>
+          <p>At that time, group fitness was still extremely new — outside of cycling, CrossFit, and traditional step classes, there weren't many options. That idea became the spark that would eventually grow into Resilience.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 2 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2015 – 2019</div>
+          <div class="timeline-title">RESILIENCE BEGINS - MONARCH</div>
+          <p>In 2015, Resilience officially began at Monarch Park. At the start, it was simple — we invited friends, family, and anyone willing to show up. We gave everything we had into every class, every session, and every opportunity to grow the community.</p>
+          <p>What made the beginning of our journey and this era so unique was the space and freedom we had to work with. We weren't confined to a small studio. We had access to the entire Monarch Park facility — because of that, our creativity exploded.</p>
+          <p>We weren't designing small workouts in tiny little spaces — we were building full-scale training experiences. Sled pushes down the turf, sprints on the track, massive circuit layouts, strength blocks, and workouts that felt more like events than classes.</p>
+          <p>This shaped everything that came after. While most group fitness programs were limited by small square footage, we were learning how to coach and program big, athletic, hybrid-style workouts years before the industry caught up.</p>
+          <p>Monarch Park didn't just give us space — it gave us an identity.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 3 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2020 – 2021</div>
+          <div class="timeline-title">GROWING PAINS</div>
+          <p>As much as we loved the creativity and freedom Monarch Park gave us, it also came with one major challenge — the workout you experienced in the morning could never be the same one we ran in the evening.</p>
+          <p>Every morning, we had the full turf, the full track, and all the space we needed to build the big, athletic-style workouts we were known for. But by the evening, everything changed. And we were squeezed into a 1,500 sq. ft. studio — a tiny fraction of what we had earlier in the day.</p>
+          <p>So every single day, we were essentially running two different versions of Resilience: One for the morning. One for the evening. There was no consistency and we had to limit our creativity.</p>
+          <p>And then there were the winters... Because we were the only user group in the early mornings, the facility didn't heat the building. People trained in toques, gloves, and winter jackets. You'd see your breath in the air as you warmed up. And believe it or not — people still came.</p>
+          <p>As classes grew and expectations rose, we fought for every inch of space we could get — adapting, reprogramming, and doing everything in our power to deliver a great workout, no matter the conditions. It wasn't the product we ultimately wanted to deliver, but we showed up every day with the same mission: make every session meaningful, no matter what.</p>
+          <p>Monarch taught us resilience, creativity, and grit — but it also made one thing clear: we needed to take the next step and change.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 4 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">LATE 2021 – 2024</div>
+          <div class="timeline-title">THE DOME</div>
+          <p>So when it came time to think about the next chapter, we knew one thing clearly: We couldn't ditch five years of creativity and squeeze ourselves into a 1,500 sq. ft. space. We couldn't picture limiting movement or stepping away from the style of training that both our community — and the two of us — had become so used to.</p>
+          <p>Resilience had become known for a style — open space, athletic movement, and creative layouts that kept people engaged and excited to train.</p>
+          <p>Then came COVID. As you know this was tough on the fitness industry but it showed us so many things. How tough things can get. How important it was to keep showing up. How strong our community really was — and how much they supported us through everything.</p>
+          <p>And it left us with a real passion to keep going, to keep improving, and to keep delivering the product we felt great about that was improving!</p>
+          <p>Coming out of that period, an opportunity opened up: every workout, every time slot — no more switching from massive morning layouts to cramped evening rooms. Clients finally got the exact same product from AM to PM.</p>
+          <p>This opportunity to run one consistent product in a space that actually matched our style of training... it was huge. In five years, we had never had that. It felt like the right next move, even though not everyone agreed with our decision to relocate. It was still a tough call, and it wasn't made lightly.</p>
+          <p>But we couldn't let the opportunity slip away. We wanted to keep delivering the kind of training that required big space — real space. And as much as we loved Monarch, the freezing winters and the limitations weren't going to change. This was our chance to evolve, stay true to how we trained so we pulled the trigger!</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 5 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2024 – 2025</div>
+          <div class="timeline-title">EXPANSION TO DURHAM</div>
+          <p>We came across a listing for a space in Ajax — the first time we'd ever looked outside our immediate neighbourhood. After months of struggling to find a space in East York that met our requirements, this one immediately stood out. When we toured it, it had all the core elements we needed, and with some work, we knew it could be something special.</p>
+          <p>The completed rebrand and the overall feel of the opportunity made it seem like the right next step. Despite the risk, we decided to go for it. Hello, Durham.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 6 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2025 & BEYOND</div>
+          <div class="timeline-title">A NEW HOME IN EAST YORK</div>
+          <p>Today, Resilience begins a new era with a new home in East York after 10 years of building from scratch.</p>
+          <p>Now with two state-of-the-art facilities, a growing Resilience clothing line, 20+ HYROX podiums, years of experience, countless lessons learned, and a passion that keeps driving us forward, we're stepping into our next chapter with clarity and purpose.</p>
+          <p>Our mission remains the same — to be the pioneer and global leader in the hybrid fitness space. No looking back now!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-item">
+        <h3>10+</h3>
+        <p>Years Building</p>
+      </div>
+      <div class="stat-item">
+        <h3>2</h3>
+        <p>State-of-the-Art Facilities</p>
+      </div>
+      <div class="stat-item">
+        <h3>20+</h3>
+        <p>HYROX Podiums</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Community Members</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h3>10 DAYS UNLIMITED CLASSES</h3>
+        <h2>INTRO OFFER</h2>
+        <p>New to Resilience? Try unlimited classes for 10 days. Get Started for $24.95 + HST.</p>
+        <a href="/membership/intro-offer" class="btn-lime btn-cta">GET THIS DEAL</a>
+        <div class="cta-contact">
+          <p>HAVE QUESTIONS?</p>
+          <div class="cta-contact-info">
+            <a href="mailto:contact@resiliencefitness.ca">contact@resiliencefitness.ca</a>
+            <span class="cta-divider">|</span>
+            <a href="tel:+14378269080">(437) 826-9080</a>
+          </div>
+        </div>
+      </div>
+      <div style="height:500px;border-radius:4px;overflow:hidden;">
+        <img src="cta-iron.jpg" alt="Train at Resilience Fitness" style="height:100%;width:100%;object-fit:cover;filter:grayscale(100%) contrast(1.1);" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <!-- Brand Column -->
+      <div class="footer-column footer-brand">
+        <a href="index.html" class="nav-logo">RESIL<span>IENCE</span></a>
+        <p>Toronto's #1 HYROX Gym & Hybrid Fitness Community</p>
+      </div>
+
+      <!-- About Column -->
+      <div class="footer-column">
+        <h4>About</h4>
+        <a href="about-us.html">Our Story</a>
+        <a href="customer-service.html">Customer Service</a>
+        <a href="resilience-fitness-policies-membership-terms.html">Policies & Terms</a>
+      </div>
+
+      <!-- Memberships Column -->
+      <div class="footer-column">
+        <h4>Memberships</h4>
+        <a href="/membership/">Unlimited Annual</a>
+        <a href="/membership/">6 Month Unlimited</a>
+        <a href="/membership/">Unlimited Monthly</a>
+        <a href="/membership/">25 Class Pack</a>
+        <a href="/membership/">15 Class Pack</a>
+        <a href="/membership/">10 Class Pack</a>
+        <a href="/membership/">5 Class Pack</a>
+        <a href="/membership/">Drop-In Class</a>
+        <a href="/membership/">Kidz Drop-In</a>
+      </div>
+
+      <!-- Locations Column -->
+      <div class="footer-column">
+        <h4>Locations</h4>
+        <a href="east-york-facility.html">East York</a>
+        <a href="durham-facility.html">Durham</a>
+      </div>
+
+      <!-- HYROX Column -->
+      <div class="footer-column">
+        <h4>HYROX</h4>
+        <a href="hyrox-workouts.html">Workouts</a>
+        <a href="resilience-hyrox-league.html">Resilience HYROX League</a>
+        <a href="hyrox-team.html">Resilience HYROX Team</a>
+        <a href="hyrox-gear-guide-2025.html">Gear Guide</a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Resilience Fitness</p>
+      <div class="footer-bottom-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

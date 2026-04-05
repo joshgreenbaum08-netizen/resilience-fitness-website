@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & News — HYROX Tips, Gear & Fitness Guides | Resilience Fitness</title>
+  <meta name="description" content="Get HYROX tips, gear advice, event reports, and fitness guides from the coaches and founders at Resilience Fitness Toronto.">
+  <link rel="canonical" href="https://resiliencefitness.ca/blogs-news/" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--dark);
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--black);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .logo-resil {
+      color: var(--lime);
+    }
+
+    .logo-ience {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--lime);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: var(--font);
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+
+    .btn-primary {
+      background-color: var(--lime);
+      color: var(--black);
+    }
+
+    .btn-primary:hover {
+      background: #d4f548;
+      transform: translateY(-1px);
+    }
+
+    /* Main Content */
+    main {
+      padding-top: 72px;
+    }
+
+    .header-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .overline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .header-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .header-section p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Blog Grid */
+    .blogs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .blog-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .blog-card:hover {
+      border-color: var(--lime);
+    }
+
+    .blog-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #0d0d0d;
+      border: 2px dashed var(--lime);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--lime);
+      font-weight: 600;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-badges {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-news {
+      background-color: #1a3a8f;
+      color: white;
+    }
+
+    .badge-guides {
+      background-color: #1a3a1a;
+      color: white;
+    }
+
+    .badge-gear {
+      background-color: #2a1a3a;
+      color: white;
+    }
+
+    .blog-card h3 {
+      font-size: 1.2rem;
+      color: var(--lime);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+      transition: all 0.3s ease;
+    }
+
+    .blog-card:hover h3 {
+      text-decoration: underline;
+    }
+
+    .blog-date {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-excerpt {
+      font-size: 0.95rem;
+      color: white;
+      line-height: 1.5;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      color: var(--lime);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-cta {
+      background-color: var(--lime);
+      color: var(--black);
+    }
+
+    .btn-cta:hover {
+      background-color: #b8e024;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-column h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--lime);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .header-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-section h1 {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .header-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .blogs-container {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+    <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Header -->
+    <section class="header-section">
+      <div class="overline">The Blog</div>
+      <h1>INSIDE HYROX</h1>
+      <p>Get HYROX tips, gear advice, and more from our coaches.</p>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blogs-container">
+      <div class="blog-grid">
+        <!-- Card 1 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="photo-run2.jpg" alt="HYROX Toronto 2025 Event" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-news">News</span>
+            </div>
+            <h3>Our HYROX Toronto 2025 Event Report</h3>
+            <div class="blog-date">October 5, 2025</div>
+            <p class="blog-excerpt">HYROX Toronto returned to the Enercare Centre this October 3–5, bringing even bigger crowds, more athletes, and an incredible energy. Here's our full recap.</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="coaches-talking.jpg" alt="Resilience HYROX Team" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-news">News</span>
+            </div>
+            <h3>HYROX Team</h3>
+            <div class="blog-date">August 21, 2025</div>
+            <p class="blog-excerpt">What's up guys. It's Josh and Andrew here! We're pumped to introduce the official Resilience HYROX Team — our elite squad competing at events across Canada.</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="photo-run.jpg" alt="HYROX Ottawa 2025" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-news">News</span>
+            </div>
+            <h3>HYROX Ottawa 2025 Officially Announced</h3>
+            <div class="blog-date">August 16, 2025</div>
+            <p class="blog-excerpt">HYROX is coming to Ottawa on May 16–17, 2026 at the EY Centre. Registration is open and the Resilience team will be there.</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="photo-sandbag.jpg" alt="HYROX Toronto 2025 Event" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-guides">Guides</span>
+            </div>
+            <h3>HYROX Toronto 2025: What to Expect at This Year's Event</h3>
+            <div class="blog-date">July 21, 2025</div>
+            <p class="blog-excerpt">After a record-breaking debut in 2024, HYROX is expected to return to Toronto bigger than ever. Here's everything you need to know.</p>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="hero-runner.jpg" alt="HYROX Toronto 2025 Announced" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-news">News</span>
+            </div>
+            <h3>HYROX Toronto 2025 Officially Announced</h3>
+            <div class="blog-date">July 21, 2025</div>
+            <p class="blog-excerpt">Toronto is officially locked in as one of the biggest HYROX events in North America. Here's what we know so far.</p>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="photo-hoodie.jpg" alt="HYROX Gear Guide 2025" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-gear">Gear</span>
+              <span class="badge badge-guides">Guides</span>
+            </div>
+            <h3>HYROX Gear Guide 2025 – Resilience Fitness</h3>
+            <div class="blog-date">July 21, 2025</div>
+            <p class="blog-excerpt">What gear do real HYROX athletes rely on? We asked 45 members from our community. Here's what they said.</p>
+          </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="blog-card">
+          <div class="blog-photo" style="border:none;padding:0;display:block;"><img src="programs-rowing.jpg" alt="HYROX Toronto 2024 Event Report" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;filter:grayscale(100%) contrast(1.1);" /></div>
+          <div class="blog-content">
+            <div class="blog-badges">
+              <span class="badge badge-guides">Guides</span>
+            </div>
+            <h3>Our HYROX Toronto 2024 Event Report</h3>
+            <div class="blog-date">October 9, 2024</div>
+            <p class="blog-excerpt">The inaugural HYROX Toronto was a massive success. Here's our full breakdown of the event, our athletes' results, and what to expect next year.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <h2>Want to Race HYROX?</h2>
+        <p>Train with the gym that's sent 70+ athletes to HYROX competitions with 7 podium finishes.</p>
+        <a href="hyrox-workouts.html" class="btn btn-primary btn-cta">Start Training Today</a>
+      </section>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-column">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="blogs-news.html">Blog & News</a></li>
+          </ul>
+        </div>
+
+        <!-- About -->
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about-us.html">Our Story</a></li>
+            <li><a href="about-us.html">Coaches</a></li>
+            <li><a href="about-us.html">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Memberships -->
+        <div class="footer-column">
+          <h4>Memberships</h4>
+          <ul>
+            <li><a href="/membership/">Plans</a></li>
+            <li><a href="/membership/">Pricing</a></li>
+            <li><a href="/membership/">Trial</a></li>
+          </ul>
+        </div>
+
+        <!-- Locations -->
+        <div class="footer-column">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="locations-main.html">Toronto</a></li>
+            <li><a href="locations-main.html">Mississauga</a></li>
+            <li><a href="locations-main.html">Hours</a></li>
+          </ul>
+        </div>
+
+        <!-- HYROX -->
+        <div class="footer-column">
+          <h4>HYROX</h4>
+          <ul>
+            <li><a href="hyrox-workouts.html">Training</a></li>
+            <li><a href="blogs-news.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Resilience Fitness</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

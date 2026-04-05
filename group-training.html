@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group Training Memberships — Resilience Fitness</title>
+  <meta name="description" content="Toronto's #1 HYROX gym. Flexible memberships and class packs for every schedule. Unlimited classes at East York and Durham." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --card-hover: #1c1c1c;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.55);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--black);
+      color: #fff;
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img { height: 48px; width: auto; display: block; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--lime); }
+    .nav-cta { display: flex; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary { background: var(--lime); color: var(--black); }
+    .btn-primary:hover { background: #d4f548; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 160px 80px 80px;
+      background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.75)), url('pictures/durham2.jpg') center/cover no-repeat;
+      filter: grayscale(100%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .page-hero > * {
+      filter: grayscale(0);
+    }
+    .page-hero .overline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .page-hero .overline::before,
+    .page-hero .overline::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--lime);
+    }
+    .page-hero h1 {
+      font-family: var(--font);
+      font-size: clamp(56px, 8vw, 120px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .page-hero h1 .accent { color: var(--lime); }
+    .page-hero p {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+
+    /* ── INTRO OFFER BANNER ── */
+    .intro-banner {
+      background: var(--lime);
+      padding: 28px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .intro-banner-text h3 {
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+    .intro-banner-text p {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(0,0,0,0.65);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    .intro-banner-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .intro-pill {
+      background: rgba(0,0,0,0.12);
+      border-radius: 2px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .intro-banner .btn-dark {
+      background: var(--black);
+      color: var(--lime);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .intro-banner .btn-dark:hover { opacity: 0.85; }
+
+    /* ── TOGGLE ── */
+    .toggle-section {
+      padding: 60px 80px 0;
+      text-align: center;
+    }
+    .toggle-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .toggle-wrap {
+      display: inline-flex;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 6px;
+      gap: 6px;
+    }
+    .toggle-btn {
+      font-family: var(--font);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 20px 52px;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 220px;
+    }
+    .toggle-btn:hover:not(.active) {
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+    .toggle-btn.active {
+      background: var(--lime);
+      color: var(--black);
+    }
+    .toggle-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+    .toggle-sub {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    .toggle-btn.active .toggle-sub {
+      opacity: 0.55;
+    }
+
+    /* ── MEMBERSHIP SECTION ── */
+    .memberships-section {
+      padding: 60px 80px 120px;
+    }
+
+    /* Featured card */
+    .featured-membership {
+      background: var(--lime);
+      border-radius: 4px;
+      padding: 48px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 24px;
+    }
+    .featured-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 12px;
+    }
+    .featured-membership h2 {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: -1px;
+      line-height: 0.9;
+      margin-bottom: 12px;
+    }
+    .featured-membership .price {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .featured-membership .price-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(0,0,0,0.55);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .featured-perks {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .featured-perk {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.7);
+    }
+    .featured-perk::before {
+      content: '✓';
+      width: 18px;
+      height: 18px;
+      background: var(--black);
+      color: var(--lime);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .featured-right {
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .featured-right .btn-dark {
+      background: var(--black);
+      color: var(--lime);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 2px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .featured-right .btn-dark:hover { opacity: 0.85; }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .membership-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 40px 36px;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+    }
+    .membership-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .card-name {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 0.9;
+      margin-bottom: 20px;
+    }
+    .card-price {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--lime);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .card-price-sub {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      margin-top: 4px;
+    }
+    .card-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 24px;
+    }
+    .card-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .card-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+    }
+    .card-features li::before {
+      content: '✓';
+      width: 18px;
+      height: 18px;
+      background: rgba(200,241,53,0.12);
+      color: var(--lime);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .card-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px;
+      border-radius: 2px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: #fff;
+      background: transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .card-cta:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+
+    /* Class Packs Section (hidden by default) */
+    .packs-section {
+      padding: 60px 80px 120px;
+      display: none;
+    }
+    .packs-section.active { display: block; }
+    .memberships-section.active { display: block; }
+
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .pack-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pack-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .pack-sessions {
+      font-size: clamp(48px, 5vw, 80px);
+      font-weight: 900;
+      color: var(--lime);
+      letter-spacing: -3px;
+      line-height: 0.9;
+    }
+    .pack-sessions span {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      vertical-align: super;
+    }
+    .pack-name {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+    .pack-price {
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .pack-price-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 2px;
+      margin-bottom: 24px;
+    }
+    .pack-per {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(200,241,53,0.7);
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+    }
+    .pack-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px;
+      border-radius: 2px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: #fff;
+      background: transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .pack-cta:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* Drop-in row */
+    .dropin-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .dropin-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      transition: background 0.2s;
+    }
+    .dropin-card:hover { background: var(--card-hover); }
+    .dropin-info .dropin-name {
+      font-size: 24px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .dropin-info .dropin-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 4px;
+    }
+    .dropin-price-wrap { text-align: right; flex-shrink: 0; }
+    .dropin-price {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--lime);
+      letter-spacing: -1px;
+    }
+    .dropin-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* ── GUARANTEE ── */
+    .guarantee-bar {
+      background: #0f0f0f;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .guarantee-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .guarantee-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200,241,53,0.1);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+    .guarantee-text h4 {
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .guarantee-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* ── CTA ── */
+    .bottom-cta {
+      padding: 100px 80px;
+      text-align: center;
+      background: var(--dark);
+    }
+    .bottom-cta h2 {
+      font-size: clamp(48px, 6vw, 88px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -2px;
+      line-height: 0.9;
+      margin-bottom: 20px;
+    }
+    .bottom-cta h2 .accent { color: var(--lime); }
+    .bottom-cta p {
+      font-size: 18px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 60px 80px 32px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+    }
+    .footer-logo img { height: 32px; width: auto; }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--lime); }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 32px; }
+      .nav-links { display: none; }
+      .page-hero { padding: 120px 40px 60px; }
+      .intro-banner { padding: 24px 40px; flex-direction: column; align-items: flex-start; }
+      .toggle-section { padding: 48px 40px 0; }
+      .memberships-section, .packs-section { padding: 48px 40px 80px; }
+      .featured-membership { flex-direction: column; align-items: flex-start; padding: 36px; }
+      .featured-right { text-align: left; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .packs-grid { grid-template-columns: repeat(2, 1fr); }
+      .dropin-row { grid-template-columns: 1fr; }
+      .guarantee-bar { padding: 48px 40px; grid-template-columns: 1fr; gap: 32px; }
+      .bottom-cta { padding: 72px 40px; }
+      footer { padding: 48px 40px 24px; }
+    }
+
+    @media (max-width: 640px) {
+      .packs-grid { grid-template-columns: 1fr; }
+      .intro-banner-pills { display: none; }
+      .page-hero h1 { letter-spacing: -1px; }
+    }
+  </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+    <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="overline">Elite Fitness · Flexible Plans</div>
+    <h1>TRAIN ON<br><span class="accent">YOUR TERMS.</span></h1>
+    <p>Unlimited classes. Two locations. Programming that actually works. Pick the plan that fits your life.</p>
+  </section>
+
+  <!-- INTRO OFFER BANNER -->
+  <div class="intro-banner">
+    <div class="intro-banner-text">
+      <h3>New? Get 10 Days for $24.95</h3>
+      <p>Unlimited classes · Any location · Starts when you book your first class</p>
+    </div>
+    <div class="intro-banner-pills">
+      <span class="intro-pill">New Members Only</span>
+      <span class="intro-pill">No Commitment</span>
+      <span class="intro-pill">Any Class</span>
+    </div>
+    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" class="btn-dark">Claim Offer →</a>
+  </div>
+
+  <!-- TOGGLE -->
+  <div class="toggle-section">
+    <p class="toggle-label">Choose your commitment level</p>
+    <div class="toggle-wrap">
+      <button class="toggle-btn active" onclick="showTab('memberships', this)">
+        <span class="toggle-icon">⚡</span>
+        Memberships
+        <span class="toggle-sub">Monthly or Annual</span>
+      </button>
+      <button class="toggle-btn" onclick="showTab('packs', this)">
+        <span class="toggle-icon">🎟</span>
+        Class Packs
+        <span class="toggle-sub">No Commitment</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MEMBERSHIPS -->
+  <div class="memberships-section active" id="tab-memberships">
+
+    <!-- Featured -->
+    <div class="featured-membership">
+      <div class="featured-left">
+        <div class="featured-tag">★ Most Popular</div>
+        <h2>Unlimited<br>Monthly</h2>
+        <div class="featured-perks">
+          <span class="featured-perk">Unlimited Classes</span>
+          <span class="featured-perk">Any Location</span>
+          <span class="featured-perk">15-Day Money-Back</span>
+          <span class="featured-perk">Free Parking</span>
+        </div>
+      </div>
+      <div class="featured-right">
+        <div class="price">$239</div>
+        <div class="price-sub">/ month + HST · 3 month commitment</div>
+        <br />
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=40&prodid=125" class="btn-dark">Get This Plan →</a>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-grid">
+
+      <div class="membership-card">
+        <div class="card-label">Best Rate</div>
+        <div class="card-name">Unlimited<br>Annual</div>
+        <div class="card-price">$2,649</div>
+        <div class="card-price-sub">/ year + HST — Pay once</div>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li>Unlimited Classes</li>
+          <li>Any Location</li>
+          <li>15-Day Money-Back</li>
+          <li>Free Parking</li>
+        </ul>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10268" class="card-cta">Get This Plan</a>
+      </div>
+
+      <div class="membership-card">
+        <div class="card-label">6 Months</div>
+        <div class="card-name">6-Month<br>Unlimited</div>
+        <div class="card-price">$1,399</div>
+        <div class="card-price-sub">/ one-time + HST</div>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li>Unlimited Classes</li>
+          <li>Any Location</li>
+          <li>15-Day Money-Back</li>
+          <li>Free Parking</li>
+        </ul>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10299" class="card-cta">Get This Plan</a>
+      </div>
+
+      <div class="membership-card">
+        <div class="card-label">Flexible</div>
+        <div class="card-name">x8 / Month<br>Membership</div>
+        <div class="card-price">$179</div>
+        <div class="card-price-sub">/ month + HST · 3 month commitment</div>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li>8 Visits Per Month</li>
+          <li>Any Class</li>
+          <li>Any Location</li>
+          <li>Free Parking</li>
+        </ul>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=40&prodId=112" class="card-cta">Get This Plan</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLASS PACKS -->
+  <div class="packs-section" id="tab-packs">
+
+    <div class="packs-grid">
+
+      <div class="pack-card">
+        <div class="pack-sessions">25 <span>classes</span></div>
+        <div class="pack-name">Class Pack</div>
+        <div class="pack-price">$599</div>
+        <div class="pack-price-sub">+ HST · Good for 1 year</div>
+        <div class="pack-per">$23.96 per class</div>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10377" class="pack-cta">Buy Pack</a>
+      </div>
+
+      <div class="pack-card">
+        <div class="pack-sessions">15 <span>classes</span></div>
+        <div class="pack-name">Class Pack</div>
+        <div class="pack-price">$385</div>
+        <div class="pack-price-sub">+ HST · Good for 1 year</div>
+        <div class="pack-per">$25.67 per class</div>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10376" class="pack-cta">Buy Pack</a>
+      </div>
+
+      <div class="pack-card">
+        <div class="pack-sessions">10 <span>classes</span></div>
+        <div class="pack-name">Class Pack</div>
+        <div class="pack-price">$269</div>
+        <div class="pack-price-sub">+ HST · Good for 1 year</div>
+        <div class="pack-per">$26.90 per class</div>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10259" class="pack-cta">Buy Pack</a>
+      </div>
+
+      <div class="pack-card">
+        <div class="pack-sessions">5 <span>classes</span></div>
+        <div class="pack-name">Class Pack</div>
+        <div class="pack-price">$139</div>
+        <div class="pack-price-sub">+ HST · Good for 1 year</div>
+        <div class="pack-per">$27.80 per class</div>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10400" class="pack-cta">Buy Pack</a>
+      </div>
+
+    </div>
+
+    <div class="dropin-row" style="margin-top: 2px;">
+
+      <div class="dropin-card">
+        <div class="dropin-info">
+          <div class="dropin-name">Drop-In Class</div>
+          <div class="dropin-desc">Any class. Any location. No commitment.</div>
+        </div>
+        <div class="dropin-price-wrap">
+          <div class="dropin-price">$30</div>
+          <div class="dropin-sub">+ HST per class</div>
+          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10354" class="pack-cta">Book Now</a>
+        </div>
+      </div>
+
+      <div class="dropin-card">
+        <div class="dropin-info">
+          <div class="dropin-name">Kidz Drop-In</div>
+          <div class="dropin-desc">Fun workouts designed for kids.</div>
+        </div>
+        <div class="dropin-price-wrap">
+          <div class="dropin-price">$25</div>
+          <div class="dropin-sub">per class</div>
+          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=43&prodid=10391" class="pack-cta">Book Now</a>
+        </div>
+      </div>
+
+      <div class="dropin-card">
+        <div class="dropin-info">
+          <div class="dropin-name">Kidz 5-Pack <span style="color:var(--lime);font-size:11px;vertical-align:super;font-weight:800;">NEW</span></div>
+          <div class="dropin-desc">5 classes for kids. Save vs drop-in.</div>
+        </div>
+        <div class="dropin-price-wrap">
+          <div class="dropin-price">$100</div>
+          <div class="dropin-sub">+ HST · 5 classes</div>
+          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=43&prodid=10391" class="pack-cta">Buy Pack</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GUARANTEE BAR -->
+  <div class="guarantee-bar">
+    <div class="guarantee-item">
+      <div class="guarantee-icon">🔒</div>
+      <div class="guarantee-text">
+        <h4>15-Day Money-Back</h4>
+        <p>Not feeling it? Get a full refund within 15 days. No questions asked.</p>
+      </div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">📍</div>
+      <div class="guarantee-text">
+        <h4>Any Location</h4>
+        <p>One membership. Two gyms. East York and Durham — train wherever works.</p>
+      </div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">🅿️</div>
+      <div class="guarantee-text">
+        <h4>Free Parking</h4>
+        <p>Both locations include free parking. Zero excuses not to show up.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>STILL NOT<br><span class="accent">SURE?</span></h2>
+    <p>Try 10 days of unlimited classes for $24.95. New members only.</p>
+    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" class="btn btn-primary">Start Your 10 Days →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+      <ul class="footer-links">
+        <li><a href="about-us.html">About</a></li>
+        <li><a href="group-training.html">Memberships</a></li>
+        <li><a href="locations-main.html">Locations</a></li>
+        <li><a href="customer-service.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">© 2026 Resilience Fitness. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function showTab(tab, btn) {
+      // Toggle buttons
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Toggle sections
+      document.getElementById('tab-memberships').style.display = tab === 'memberships' ? 'block' : 'none';
+      document.getElementById('tab-packs').style.display = tab === 'packs' ? 'block' : 'none';
+    }
+    // Init
+    document.getElementById('tab-memberships').style.display = 'block';
+    document.getElementById('tab-packs').style.display = 'none';
+  </script>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

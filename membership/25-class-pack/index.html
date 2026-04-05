@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 Class Pack | Resilience Fitness</title>
+  <link rel="canonical" href="https://resiliencefitness.ca/membership/25-class-pack/" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    body {
+      background-color: var(--black);
+      color: white;
+      font-family: var(--font);
+      line-height: 1.6;
+    }
+
+    /* FIXED NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background-color: var(--dark);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-logo span.lime {
+      color: var(--lime);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--lime);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-outline {
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: var(--black);
+    }
+
+    .btn-lime {
+      background-color: var(--lime);
+      color: var(--black);
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .btn-lime:hover {
+      opacity: 0.9;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      padding-top: 72px;
+      min-height: 100vh;
+    }
+
+    .breadcrumb {
+      padding: 2rem 2rem 1rem;
+      background-color: var(--dark);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .breadcrumb a {
+      color: var(--lime);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: var(--text-muted);
+    }
+
+    .content-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .membership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .photo-placeholder {
+      background-color: #0d0d0d;
+      border: 2px dashed var(--lime);
+      border-radius: 8px;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--lime);
+    }
+
+    .membership-details h1 {
+      font-size: 3rem;
+      color: var(--lime);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .price-section {
+      margin-bottom: 2rem;
+    }
+
+    .price-amount {
+      font-size: 3rem;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-frequency {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .description {
+      font-size: 1.05rem;
+      color: white;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .benefits-heading {
+      font-size: 0.95rem;
+      color: var(--lime);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin: 2rem 0 1.5rem 0;
+    }
+
+    .benefits-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .benefit-card {
+      background-color: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .benefit-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .benefit-text {
+      color: white;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .btn-cta {
+      background-color: var(--lime);
+      color: var(--black);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cta:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    /* COMPARISON TABLE */
+    .comparison-section {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .comparison-section h2 {
+      font-size: 2rem;
+      color: var(--lime);
+      margin-bottom: 2rem;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .comparison-table th {
+      background-color: var(--lime);
+      color: var(--black);
+      padding: 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .comparison-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      color: white;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tbody tr:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .comparison-table a {
+      color: var(--lime);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .comparison-table a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h3 {
+      color: var(--lime);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .footer-column a:hover {
+      color: var(--lime);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .photo-placeholder {
+        min-height: 300px;
+      }
+
+      .membership-details h1 {
+        font-size: 2.25rem;
+      }
+
+      .price-amount {
+        font-size: 2.25rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .membership-details h1 {
+        font-size: 1.75rem;
+      }
+
+      .price-amount {
+        font-size: 1.75rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- FIXED NAV -->
+  <nav>
+    <a href="/" class="nav-logo"><span class="lime">RESIL</span>IENCE</a>
+    <ul class="nav-links">
+      <li><a href="/classes.html">Training</a></li>
+      <li><a href="/about-us.html">About</a></li>
+      <li><a href="/locations-main.html">Locations</a></li>
+      <li><a href="/hyrox-workouts.html">HYROX</a></li>
+      <li><a href="/membership/">Memberships</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="#" class="btn-outline">Book a Class</a>
+      <a href="#" class="btn-lime">10 Days for $24.95</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="/membership/">Memberships</a> <span>/ 25 Class Pack</span>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="content-wrapper">
+      <!-- MEMBERSHIP GRID -->
+      <div class="membership-grid">
+        <!-- LEFT: PHOTO PLACEHOLDER -->
+        <div class="photo-placeholder">[ PHOTO ]</div>
+
+        <!-- RIGHT: DETAILS -->
+        <div class="membership-details">
+          <h1>25 Class Pack</h1>
+
+          <div class="price-section">
+            <div class="price-amount">$599</div>
+            <div class="price-frequency">/ one-time + HST</div>
+          </div>
+
+          <p class="description">
+            The 25 Class Pack is our best-value class pack option. If you're training consistently but not quite at unlimited frequency, this gives you a healthy bank of sessions to work through at your own pace. Valid for 1 year.
+          </p>
+
+          <h3 class="benefits-heading">You'll Love This If:</h3>
+
+          <div class="benefits-container">
+            <div class="benefit-card">
+              <span class="benefit-icon">🔥</span>
+              <span class="benefit-text">You want a big bank of sessions at a great rate</span>
+            </div>
+            <div class="benefit-card">
+              <span class="benefit-icon">⚡</span>
+              <span class="benefit-text">You train 2–3x per week but prefer a pack</span>
+            </div>
+            <div class="benefit-card">
+              <span class="benefit-icon">💪</span>
+              <span class="benefit-text">You want flexibility without a monthly bill</span>
+            </div>
+          </div>
+
+          <a href="https://app.wodify.com" class="btn-cta">Grab a 25 Pack</a>
+        </div>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <div class="comparison-section">
+        <h2>All Membership Options</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Membership</th>
+              <th>Price</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/membership/unlimited-annual/">Unlimited Annual</a></td>
+              <td>$2,649/yr</td>
+              <td>Highest frequency, best value</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/6-month-unlimited/">6 Month Unlimited</a></td>
+              <td>$1,449/6mo</td>
+              <td>Commitment without full year</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/unlimited/">Unlimited Monthly</a></td>
+              <td>$239/mth</td>
+              <td>Training 3–4x per week</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/25-class-pack/">25 Class Pack</a></td>
+              <td>$599</td>
+              <td>2–3x/week, flexible</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/15-class-pack/">15 Class Pack</a></td>
+              <td>$389</td>
+              <td>1–2x/week, flexible</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/10-class-pack/">10 Class Pack</a></td>
+              <td>$269</td>
+              <td>1x/week + extras</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/5-class-pack/">5 Class Pack</a></td>
+              <td>$149</td>
+              <td>Try it out</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/drop-in-class/">Drop-In</a></td>
+              <td>$35/class</td>
+              <td>One-time visits</td>
+            </tr>
+            <tr>
+              <td><a href="/membership/kidz-drop-in/">Kidz Drop-In</a></td>
+              <td>$25/class</td>
+              <td>Kids classes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Brand</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <ul>
+          <li><a href="/about-us.html">Our Story</a></li>
+          <li><a href="/classes.html">Classes</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Memberships</h3>
+        <ul>
+          <li><a href="/membership/">All Options</a></li>
+          <li><a href="/membership/unlimited-annual/">Unlimited Annual</a></li>
+          <li><a href="/membership/unlimited/">Monthly</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Locations</h3>
+        <ul>
+          <li><a href="/locations-main.html">Find Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>HYROX</h3>
+        <ul>
+          <li><a href="/hyrox-workouts.html">HYROX Training</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Resilience Fitness | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

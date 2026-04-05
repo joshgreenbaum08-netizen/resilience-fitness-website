@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule — Resilience Fitness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--black);
+      color: #fff;
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; object-fit: cover; }
+
+    /* ============ NAVIGATION ============ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo img { height: 48px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links > li {
+      position: relative;
+    }
+
+    .nav-links > li > a {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active { color: var(--lime); }
+
+    /* dropdown arrow */
+    .nav-links > li > a .arrow {
+      font-size: 8px;
+      opacity: 0.6;
+      transition: transform 0.2s;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg); }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #161616;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      min-width: 180px;
+      padding: 8px 0;
+      list-style: none;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    }
+
+    .nav-links > li:hover > .dropdown { display: block; }
+
+    .dropdown li a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .dropdown li a:hover {
+      color: var(--lime);
+      background: rgba(200,241,53,0.06);
+    }
+
+    .dropdown li a.active { color: var(--lime); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: #fff;
+      background: transparent;
+    }
+
+    .btn-outline:hover { border-color: #fff; }
+
+    .btn-primary {
+      background: var(--lime);
+      color: var(--black);
+      border: none;
+    }
+
+    .btn-primary:hover { background: #d4f542; }
+
+    /* ============ PAGE HEADER ============ */
+    .page-header {
+      padding: 130px 48px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header .overline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .page-header h1 {
+      font-size: clamp(56px, 8vw, 100px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.92;
+      letter-spacing: -2px;
+    }
+
+    .page-header h1 span { color: var(--lime); }
+
+    /* ============ LOCATION TABS ============ */
+    .schedule-tabs-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      background: var(--dark);
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+    }
+
+    .tab-btn {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      padding: 20px 28px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn:hover { color: #fff; }
+    .tab-btn.active { color: var(--lime); border-bottom-color: var(--lime); }
+
+    /* ============ WIDGET PANELS ============ */
+    .schedule-content { padding: 48px; max-width: 1200px; margin: 0 auto; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Override Mindbody widget dark theme */
+    .widget-wrap {
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    healcode-widget,
+    .mindbody-widget { display: block; }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 60px 48px 32px;
+      margin-top: 80px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo img { height: 40px; width: auto; margin-bottom: 16px; }
+    .footer-brand p { color: var(--text-muted); font-size: 14px; line-height: 1.6; max-width: 280px; }
+
+    .footer-col h5 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: var(--text-muted); font-size: 14px; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p { color: var(--text-muted); font-size: 13px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 110px 20px 40px; }
+      .schedule-tabs-nav { padding: 0 20px; overflow-x: auto; }
+      .tab-btn { padding: 16px 16px; font-size: 11px; white-space: nowrap; }
+      .schedule-content { padding: 24px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      footer { padding: 40px 20px 24px; }
+    }
+  </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+    <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <div class="page-header">
+    <span class="overline">Find a Class</span>
+    <h1>CLASS<br><span>SCHEDULE.</span></h1>
+  </div>
+
+  <!-- ============ LOCATION TABS ============ -->
+  <div class="schedule-tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('east-york', this)">East York</button>
+    <button class="tab-btn" onclick="switchTab('durham', this)">Durham</button>
+    <button class="tab-btn" onclick="switchTab('kidz', this)">Kidz</button>
+    <button class="tab-btn" onclick="switchTab('open-gym', this)">Open Gym</button>
+  </div>
+
+  <!-- ============ SCHEDULE WIDGETS ============ -->
+  <div class="schedule-content">
+
+    <!-- East York -->
+    <div id="tab-east-york" class="tab-panel active">
+      <div class="widget-wrap">
+        <script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript"></script>
+        <healcode-widget data-type="schedules" data-widget-partner="object" data-widget-id="c720842025fa" data-widget-version="1"></healcode-widget>
+      </div>
+    </div>
+
+    <!-- Durham -->
+    <div id="tab-durham" class="tab-panel">
+      <div class="widget-wrap">
+        <script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript"></script>
+        <healcode-widget data-type="schedules" data-widget-partner="object" data-widget-id="c720841925fa" data-widget-version="1"></healcode-widget>
+      </div>
+    </div>
+
+    <!-- Kidz -->
+    <div id="tab-kidz" class="tab-panel">
+      <div class="widget-wrap">
+        <!-- Mindbody Schedules widget begin -->
+        <div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="c73781225fa"></div>
+        <script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
+        <!-- Mindbody Schedules widget end -->
+      </div>
+    </div>
+
+    <!-- Open Gym -->
+    <div id="tab-open-gym" class="tab-panel">
+      <div class="widget-wrap">
+        <!-- Mindbody Schedules widget begin -->
+        <div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="c74873425fa"></div>
+        <script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
+        <!-- Mindbody Schedules widget end -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+        <p>Toronto's home of the hybrid athlete. Group training that builds strength, community, and character.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Train</h5>
+        <ul>
+          <li><a href="group-training.html">Hybrid Training</a></li>
+          <li><a href="classes.html">Class Schedule</a></li>
+          <li><a href="schedule.html">Book a Class</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+          <li><a href="locations-main.html">Locations</a></li>
+    
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://www.instagram.com/resiliencefitness/" target="_blank">Instagram</a></li>
+          <li><a href="customer-service.html">Contact Us</a></li>
+          <li><a href="group-training.html">Membership</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Resilience Fitness. All rights reserved.</p>
+      <p>Toronto · Durham · #ironsharpensiron</p>
+    </div>
+  </footer>
+
+  <!-- Tab switching logic -->
+  <script>
+    function switchTab(tabId, btn) {
+      // Hide all panels
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      // Deactivate all buttons
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      // Show selected
+      document.getElementById('tab-' + tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+  <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>

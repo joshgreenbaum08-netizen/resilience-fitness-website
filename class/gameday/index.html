@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gameday — Athletic Performance Class Toronto | Resilience Fitness</title>
+  <link rel="canonical" href="https://resiliencefitness.ca/class/gameday/" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lime: #C8F135;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: rgba(255,255,255,0.6);
+      --font: 'Barlow Condensed', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--dark);
+      color: white;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 72px;
+      background-color: var(--black);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .nav-logo span.lime {
+      color: var(--lime);
+    }
+
+    .nav-logo span.white {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      flex: 1;
+      margin-left: 80px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--lime);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      padding: 8px 16px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .nav-btn-outline {
+      border: 1px solid var(--lime);
+      color: var(--lime);
+    }
+
+    .nav-btn-outline:hover {
+      background-color: var(--lime);
+      color: var(--black);
+    }
+
+    .nav-btn-lime {
+      background-color: var(--lime);
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .nav-btn-lime:hover {
+      opacity: 0.9;
+    }
+
+    .breadcrumb {
+      padding-top: 72px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 20px;
+      background-color: var(--dark);
+      font-size: 0.95rem;
+    }
+
+    .breadcrumb a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: white;
+    }
+
+    .breadcrumb-sep {
+      color: var(--text-muted);
+      margin: 0 10px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 72px);
+      gap: 0;
+    }
+
+    .class-photo {
+      background-color: #0d0d0d;
+      border-right: 1px dashed var(--lime);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 40px;
+    }
+
+    .class-details {
+      padding: 60px 40px;
+      background-color: var(--dark);
+      overflow-y: auto;
+    }
+
+    .tags {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background-color: var(--lime);
+      color: var(--black);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--lime);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .description {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .detail-section {
+      margin-bottom: 36px;
+    }
+
+    .detail-heading {
+      color: var(--lime);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .detail-text {
+      color: white;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .schedule-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .schedule-day {
+      color: var(--lime);
+      font-weight: 600;
+      min-width: 100px;
+    }
+
+    .schedule-time {
+      color: white;
+    }
+
+    .benefit-list {
+      list-style: none;
+      margin-bottom: 0;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: white;
+      font-size: 0.95rem;
+      align-items: flex-start;
+    }
+
+    .benefit-check {
+      color: var(--lime);
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .reviews-section {
+      padding: 80px 40px;
+      background-color: var(--dark);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .reviews-header h2 {
+      font-size: 2.5rem;
+      color: var(--lime);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .reviews-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .review-card {
+      background-color: var(--card);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .review-header {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .review-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lime), #a6d92e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-weight: 600;
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    .review-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .cta-section {
+      padding: 80px 40px;
+      background-color: var(--black);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-section h2 {
+      font-size: 2.2rem;
+      color: var(--lime);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--lime);
+      color: var(--black);
+      padding: 14px 36px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 4px;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .cta-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      color: var(--lime);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--lime);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--lime);
+    }
+
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .class-photo {
+        border-right: none;
+        border-bottom: 1px dashed var(--lime);
+        min-height: 300px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .reviews-header h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 20px;
+      }
+
+      .nav-links {
+        margin-left: 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .class-details {
+        padding: 40px 20px;
+      }
+
+      .breadcrumb {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo"><span class="lime">RESIL</span><span class="white">IENCE</span></a>
+    <ul class="nav-links">
+      <li><a href="/classes.html">Training</a></li>
+      <li><a href="/about-us.html">About</a></li>
+      <li><a href="/locations-main.html">Locations</a></li>
+      <li><a href="/hyrox-workouts.html">HYROX</a></li>
+      <li><a href="/membership/">Memberships</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="/membership/intro-offer" class="nav-btn nav-btn-outline">Book a Class</a>
+      <a href="/membership/intro-offer" class="nav-btn nav-btn-lime">10 Days for $24.95</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="/classes.html">Classes</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Gameday</span>
+  </div>
+
+  <main>
+    <div class="class-photo">[ CLASS PHOTO ]</div>
+
+    <div class="class-details">
+      <div class="tags">
+        <span class="tag">Most Popular</span>
+      </div>
+
+      <h1>Gameday</h1>
+
+      <p class="description">Whether you're an aspiring athlete, or simply someone looking to elevate their fitness game, this class is designed to enhance your strength, power, agility, and overall athletic performance!</p>
+
+      <div class="detail-section">
+        <h3 class="detail-heading">Where is it</h3>
+        <p class="detail-text">Available at both East York and Durham locations. Check the schedule for availability.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="detail-heading">When is it</h3>
+        <p class="detail-text">Check schedule for current times</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="detail-heading">Why you'll love it</h3>
+        <ul class="benefit-list">
+          <li class="benefit-item"><span class="benefit-check">✓</span> <span>Combines strength, power, and agility in every session</span></li>
+          <li class="benefit-item"><span class="benefit-check">✓</span> <span>Designed for competitive athletes and everyday fitness</span></li>
+          <li class="benefit-item"><span class="benefit-check">✓</span> <span>High energy, always different, never boring</span></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <section class="reviews-section">
+    <div class="reviews-header">
+      <h2>Member Reviews</h2>
+      <p class="reviews-subtitle">What makes us different? Ask our members!</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">B</div>
+          <div class="review-name">Beck Lewis</div>
+        </div>
+        <p class="review-text">"Truly nothing similar to Resilience in Durham. If you're looking to build up your conditioning, increase your confidence with weights and feel a sense of community – this gym is for you"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">D</div>
+          <div class="review-name">Daniel Losier</div>
+        </div>
+        <p class="review-text">"An amazing spot if you are training for Hyrox. They have tons of hyrox classes throughout their schedule!"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">M</div>
+          <div class="review-name">Mike Chatham</div>
+        </div>
+        <p class="review-text">"If I didn't live in Ottawa, I'd sign up 100%. Killer HYROX workout"</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Try Gameday?</h2>
+    <p class="cta-text">Book your first class. 10 days unlimited for $24.95 + HST.</p>
+    <a href="/membership/intro-offer" class="cta-btn">Book Your First Class</a>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Brand</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us.html">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <ul>
+          <li><a href="/about-us.html">Our Story</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/values">Values</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Memberships</h3>
+        <ul>
+          <li><a href="/membership/">Membership Plans</a></li>
+          <li><a href="/membership/intro-offer">Intro Offer</a></li>
+          <li><a href="/membership/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Locations</h3>
+        <ul>
+          <li><a href="/locations-main.html">East York</a></li>
+          <li><a href="/locations-main.html">Durham</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>HYROX</h3>
+        <ul>
+          <li><a href="/hyrox-workouts.html">HYROX Workouts</a></li>
+          <li><a href="/hyrox-workouts.html">Training Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Resilience Fitness</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-use">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

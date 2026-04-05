@@ -1,0 +1,30 @@
+# Resilience Chatbot — Project Memory
+
+## What We're Building
+A Claude API-powered chatbot for resiliencefitness.ca (WordPress site).
+The chatbot bible/system prompt is in: resilience-chatbot-bible.md
+
+## Brand
+- Primary colour: #C4D031
+- Tone: warm, supportive, service-based, coach-like
+
+## Tech Stack
+- Claude API (claude-sonnet-4-20250514)
+- HTML/CSS/JS widget embedded on WordPress
+- Web search enabled for fitness coaching questions
+
+## Phase 1 Goals
+- Answer Mindbody FAQs
+- Handle gym policies
+- Membership recommendation flow
+- Fitness coaching Q&A with web search
+
+## Phase 2 (Later)
+- ActiveCampaign lead capture integration
+- Expand fitness philosophy content
+
+## Key Links
+- Apple App: https://apps.apple.com/ca/app/resilience-fitness-canada/id6478201692
+- Android App: https://play.google.com/store/apps/details?id=com.fitnessmobileapps.resiliencefitness
+- Website: resiliencefitness.ca
+- Contact: contact@resiliencefitness.ca / 437-826-9080

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Josh and Andrew go behind the scenes at Resilience — discussing fitness, health, entrepreneurship, and life outside the gym.">
+    <title>The Resilience Podcast — Fitness, Health & Entrepreneurship | Resilience Fitness</title>
+    <link rel="canonical" href="https://resiliencefitness.ca/podcast/" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --lime: #C8F135;
+            --black: #0A0A0A;
+            --dark: #111111;
+            --card: #161616;
+            --border: rgba(255,255,255,0.08);
+            --text-muted: rgba(255,255,255,0.6);
+            --font: 'Barlow Condensed', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--dark);
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 1rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            gap: 0;
+        }
+
+        .logo-lime {
+            color: var(--lime);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--lime);
+        }
+
+        .nav-ctas {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 0;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-secondary {
+            border: 1.5px solid rgba(255,255,255,0.3);
+            color: white;
+            background-color: transparent;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--lime);
+            color: var(--lime);
+        }
+
+        .btn-primary {
+            background-color: var(--lime);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: #d4f548;
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 72px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 1rem;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 10, 0.78), rgba(10, 10, 10, 0.78)), url('coaches-talking.jpg') center/cover no-repeat;
+            filter: grayscale(100%);
+        }
+
+        .hero > * {
+            filter: grayscale(0);
+        }
+
+        .hero-overline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--lime);
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .player-placeholder {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            background-color: #0d0d0d;
+            border: 2px dashed var(--lime);
+            border-radius: 8px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .player-placeholder-text {
+            font-size: 1.1rem;
+            color: var(--lime);
+            font-weight: 600;
+        }
+
+        .listen-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .badge span {
+            color: var(--lime);
+        }
+
+        /* Archives Section */
+        .archives {
+            padding: 6rem 1rem;
+            background-color: var(--black);
+        }
+
+        .archives h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--lime);
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .episode-card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .episode-card:hover {
+            border-color: var(--lime);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(200, 241, 53, 0.1);
+        }
+
+        .episode-photo {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #0d0d0d;
+            border-bottom: 1px solid var(--border);
+            border: 2px dashed var(--lime);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lime);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .episode-content {
+            padding: 1.5rem;
+        }
+
+        .episode-date {
+            display: inline-block;
+            background-color: rgba(200, 241, 53, 0.1);
+            color: var(--lime);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .episode-title {
+            color: var(--lime);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .episode-excerpt {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 1rem;
+            background-color: var(--lime);
+            color: var(--black);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn {
+            background-color: var(--black);
+            color: var(--lime);
+            border: 2px solid var(--black);
+        }
+
+        .cta-section .btn:hover {
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--text-muted);
+            padding: 4rem 1rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--lime);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .episodes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .episodes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+
+            .listen-badges {
+                gap: 1rem;
+            }
+
+            .nav-ctas {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+
+  <style id="rf-nav-standard">
+    /* ======================================================
+       RESILIENCE FITNESS — STANDARD NAV (auto-generated)
+       ====================================================== */
+    nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 48px !important;
+      height: 72px !important;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 48px !important; width: auto !important; display: block !important; }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-links > li {
+      position: relative !important;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none !important;
+      padding: 8px 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: color 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links > li > a:hover { color: #C8F135 !important; }
+
+    .nav-links > li > a .arrow {
+      font-size: 7px !important;
+      opacity: 0.55 !important;
+      transition: transform 0.2s !important;
+      display: inline-block !important;
+    }
+
+    .nav-links > li:hover > a .arrow { transform: rotate(180deg) !important; }
+
+    /* dropdown panel */
+    .nav-links > li > .dropdown {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: #161616 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 6px !important;
+      min-width: 185px !important;
+      padding: 8px 0 8px 0 !important;
+      margin-top: 0 !important;
+      list-style: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65) !important;
+      z-index: 2000 !important;
+      margin: 0 !important;
+    }
+
+    .nav-links > li:hover > .dropdown { display: block !important; }
+
+    .nav-links .dropdown li a {
+      display: block !important;
+      padding: 10px 20px !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, background 0.2s !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown li a:hover {
+      color: #C8F135 !important;
+      background: rgba(200,241,53,0.06) !important;
+    }
+
+    /* CTA buttons */
+    .nav-cta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      padding: 10px 22px !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    .btn-nav-outline {
+      border: 1.5px solid rgba(255,255,255,0.4) !important;
+      color: #fff !important;
+      background: transparent !important;
+    }
+
+    .btn-nav-outline:hover {
+      border-color: #fff !important;
+      color: #fff !important;
+    }
+
+    .btn-nav-primary {
+      background: #C8F135 !important;
+      color: #0A0A0A !important;
+      border: none !important;
+    }
+
+    .btn-nav-primary:hover { background: #d4f542 !important; }
+
+    /* mobile: hide nav links */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+    <!-- Navigation -->
+      <nav>
+    <a href="index.html" class="nav-logo"><img src="resilience-logo.png" alt="Resilience Fitness" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="classes.html">Training <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="group-training.html">Memberships</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about-us.html">About <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="locations-main.html">Locations <span class="arrow">&#9660;</span></a>
+        <ul class="dropdown">
+          <li><a href="east-york-facility.html">East York</a></li>
+          <li><a href="durham-facility.html">Durham</a></li>
+        </ul>
+      </li>
+      <li><a href="hyrox-workouts.html">HYROX</a></li>
+
+      <li><a href="customer-service.html">Connect</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
+      <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
+    </div>
+  </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <p class="hero-overline">The Resilience Podcast</p>
+                <h1>GO BEHIND THE SCENES AT RESILIENCE</h1>
+                <p class="hero-subtitle">Josh and Andrew go deep into fitness, health, entrepreneurship, and life outside the gym.</p>
+
+                <div class="player-placeholder">
+                    <p class="player-placeholder-text">[ PODCAST PLAYER EMBED ]</p>
+                </div>
+
+                <div class="listen-badges">
+                    <span class="badge">Available on: <span>Spotify</span></span>
+                    <span class="badge"><span>Apple Podcasts</span></span>
+                    <span class="badge"><span>YouTube</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Archives Section -->
+        <section class="archives">
+            <div class="container">
+                <h2>THE ARCHIVES</h2>
+
+                <div class="episodes-grid">
+                    <!-- Episode 1 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">September 9, 2025</span>
+                            <h3 class="episode-title">Resilience Begins A New Era</h3>
+                            <p class="episode-excerpt">Andrew, Josh and the good folks from Performance Recovery Therapy discuss the new era of Resilience Fitness and what it means for the community.</p>
+                        </div>
+                    </article>
+
+                    <!-- Episode 2 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">August 12, 2025</span>
+                            <h3 class="episode-title">Amir Bahar</h3>
+                            <p class="episode-excerpt">Josh sits down with Amir Bahar, founder of Toronto fashion label Pink Martini, to talk entrepreneurship, community, and building something from scratch.</p>
+                        </div>
+                    </article>
+
+                    <!-- Episode 3 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">July 18, 2025</span>
+                            <h3 class="episode-title">The Ultra</h3>
+                            <p class="episode-excerpt">In this episode of Meet Me At The Table, Josh and Andrew break down the HYROX Ultra experience — what it takes, what they learned, and what's next.</p>
+                        </div>
+                    </article>
+
+                    <!-- Episode 4 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">July 14, 2025</span>
+                            <h3 class="episode-title">Coach Lanny</h3>
+                            <p class="episode-excerpt">In this episode, Josh and Andrew sit down with longtime coach Lanny to talk about coaching philosophy, hybrid training, and what makes a great athlete.</p>
+                        </div>
+                    </article>
+
+                    <!-- Episode 5 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">July 12, 2025</span>
+                            <h3 class="episode-title">Dr. Dan Silva</h3>
+                            <p class="episode-excerpt">Dr. Dan sheds a ton of light on some of the most pivotal topics in health, recovery, and performance for everyday athletes.</p>
+                        </div>
+                    </article>
+
+                    <!-- Episode 6 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">July 12, 2025</span>
+                            <h3 class="episode-title">Mindset Is Everything</h3>
+                            <p class="episode-excerpt">Josh and Andrew discuss the importance of mindset and have a candid conversation about what it really takes to show up consistently.</p>
+                        </div>
+                    </article>
+
+                    <!-- Episode 7 -->
+                    <article class="episode-card">
+                        <div class="episode-photo">[ EPISODE PHOTO ]</div>
+                        <div class="episode-content">
+                            <span class="episode-date">July 12, 2025</span>
+                            <h3 class="episode-title">HYROX Vegas 2025</h3>
+                            <p class="episode-excerpt">Co-founder Josh Greenbaum and the Resilience crew compete at HYROX Vegas — recapping the race, the results, and the experience.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>TRAIN WHERE THE PODCAST HAPPENS</h2>
+                <p>Come train with Josh, Andrew, and the crew at Resilience Fitness. East York and Durham.</p>
+                <a href="/membership/intro-offer" class="btn btn-primary">Try 10 Days for $24.95</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Brand</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="podcast.html">Podcast</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about-us.html">Our Story</a></li>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="hyrox-workouts.html">HYROX</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Memberships</h3>
+                    <ul>
+                        <li><a href="/membership/">All Plans</a></li>
+                        <li><a href="/membership/intro-offer">Intro Offer</a></li>
+                        <li><a href="/membership/">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Locations</h3>
+                    <ul>
+                        <li><a href="locations-main.html">East York</a></li>
+                        <li><a href="locations-main.html">Durham</a></li>
+                        <li><a href="locations-main.html">All Locations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>HYROX</h3>
+                    <ul>
+                        <li><a href="hyrox-workouts.html">HYROX Workouts</a></li>
+                        <li><a href="hyrox-workouts.html">Training Plans</a></li>
+                        <li><a href="podcast.html">Race Stories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Resilience Fitness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
+  <script src="chat-nudge.js"></script>
+</body>
+</html>
