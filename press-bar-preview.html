@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '588377326638619');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=588377326638619&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Bar Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; font-family: 'Barlow Condensed', sans-serif; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 20px; }
+
+  h2 { color: rgba(255,255,255,0.4); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+
+  /* ── PHONE FRAME ── */
+  .phone { width: 375px; background: #0A0A0A; border: 2px solid rgba(255,255,255,0.15); border-radius: 36px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.8); }
+  .phone-notch { height: 32px; background: #111; display: flex; align-items: center; justify-content: center; }
+  .phone-notch-bar { width: 80px; height: 8px; background: #222; border-radius: 4px; }
+
+  /* ── HERO STUB ── */
+  .hero-stub { background: linear-gradient(180deg, #111 0%, #0A0A0A 100%); padding: 24px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero-stub-text { color: rgba(255,255,255,0.2); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
+
+  /* ══════════════════════════════════════
+     OPTION A — 2×2 GRID
+  ══════════════════════════════════════ */
+  .press-a {
+    background: #0f0f0f;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 20px 24px;
+  }
+  .press-a-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .press-a-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .press-a-item {
+    background: #111;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .press-a-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .press-a-desc {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ══════════════════════════════════════
+     OPTION B — CENTERED ROW WITH DIVIDERS
+  ══════════════════════════════════════ */
+  .press-b {
+    background: #0f0f0f;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 18px 16px;
+  }
+  .press-b-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .press-b-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  .press-b-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 0 14px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    flex: 1;
+  }
+  .press-b-item:last-child { border-right: none; }
+  .press-b-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    line-height: 1;
+    text-align: center;
+  }
+  .press-b-desc {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+  }
+
+  /* ══════════════════════════════════════
+     OPTION C — MARQUEE SCROLL
+  ══════════════════════════════════════ */
+  .press-c {
+    background: #0f0f0f;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 18px 0;
+    overflow: hidden;
+  }
+  .press-c-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .press-c-track {
+    display: flex;
+    gap: 40px;
+    animation: marquee 12s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .press-c-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    white-space: nowrap;
+    padding: 0 8px;
+  }
+  .press-c-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .press-c-desc {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .press-c-dot {
+    color: #C8F135;
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .label-tag { background: rgba(200,241,53,0.15); color: #C8F135; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(200,241,53,0.3); }
+</style>
+</head>
+<body>
+
+  <div style="text-align:center">
+    <div class="label-tag">Mobile Press Bar Redesign</div>
+    <p style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:8px;letter-spacing:1px;font-family:sans-serif;">3 options — pick your favourite</p>
+  </div>
+
+  <!-- OPTION A -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <h2>OPTION A — 2×2 GRID</h2>
+    <div class="phone">
+      <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+      <div class="hero-stub"><div class="hero-stub-text">↑ Hero section above</div></div>
+      <div class="press-a">
+        <div class="press-a-label">As seen in</div>
+        <div class="press-a-grid">
+          <div class="press-a-item">
+            <span class="press-a-name">GQ</span>
+            <span class="press-a-desc">Featured In</span>
+          </div>
+          <div class="press-a-item">
+            <span class="press-a-name">blogTO</span>
+            <span class="press-a-desc">Ranked #1 Hyrox Gym</span>
+          </div>
+          <div class="press-a-item">
+            <span class="press-a-name">Daily Hive</span>
+            <span class="press-a-desc">Featured In</span>
+          </div>
+          <div class="press-a-item">
+            <span class="press-a-name">Grit Daily</span>
+            <span class="press-a-desc">Featured In</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <h2>OPTION B — COMPACT ROW (fits in one line)</h2>
+    <div class="phone">
+      <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+      <div class="hero-stub"><div class="hero-stub-text">↑ Hero section above</div></div>
+      <div class="press-b">
+        <div class="press-b-label">As seen in</div>
+        <div class="press-b-row">
+          <div class="press-b-item">
+            <span class="press-b-name">GQ</span>
+            <span class="press-b-desc">Featured</span>
+          </div>
+          <div class="press-b-item">
+            <span class="press-b-name">blogTO</span>
+            <span class="press-b-desc">#1 Hyrox</span>
+          </div>
+          <div class="press-b-item">
+            <span class="press-b-name">Daily Hive</span>
+            <span class="press-b-desc">Featured</span>
+          </div>
+          <div class="press-b-item">
+            <span class="press-b-name">Grit Daily</span>
+            <span class="press-b-desc">Featured</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <h2>OPTION C — AUTO-SCROLLING MARQUEE</h2>
+    <div class="phone">
+      <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+      <div class="hero-stub"><div class="hero-stub-text">↑ Hero section above</div></div>
+      <div class="press-c">
+        <div class="press-c-label">As seen in</div>
+        <div class="press-c-track">
+          <div class="press-c-item"><span class="press-c-name">GQ</span><span class="press-c-desc">Featured In</span></div>
+          <div class="press-c-dot">✦</div>
+          <div class="press-c-item"><span class="press-c-name">blogTO</span><span class="press-c-desc">Ranked #1 Hyrox</span></div>
+          <div class="press-c-dot">✦</div>
+          <div class="press-c-item"><span class="press-c-name">Daily Hive</span><span class="press-c-desc">Featured In</span></div>
+          <div class="press-c-dot">✦</div>
+          <div class="press-c-item"><span class="press-c-name">Grit Daily</span><span class="press-c-desc">Featured In</span></div>
+          <div class="press-c-dot">✦</div>
+          <!-- duplicate for seamless loop -->
+          <div class="press-c-item"><span class="press-c-name">GQ</span><span class="press-c-desc">Featured In</span></div>
+          <div class="press-c-dot">✦</div>
+          <div class="press-c-item"><span class="press-c-name">blogTO</span><span class="press-c-desc">Ranked #1 Hyrox</span></div>
+          <div class="press-c-dot">✦</div>
+          <div class="press-c-item"><span class="press-c-name">Daily Hive</span><span class="press-c-desc">Featured In</span></div>
+          <div class="press-c-dot">✦</div>
+          <div class="press-c-item"><span class="press-c-name">Grit Daily</span><span class="press-c-desc">Featured In</span></div>
+          <div class="press-c-dot">✦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

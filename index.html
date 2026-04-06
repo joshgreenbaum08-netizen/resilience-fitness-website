@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '588377326638619');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=588377326638619&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resilience Fitness — Train Different.</title>
@@ -326,6 +339,7 @@
       align-items: center;
       height: 72px;
       gap: 0;
+      overflow: hidden;
     }
 
     .press-bar-label {
@@ -338,6 +352,7 @@
       padding-right: 40px;
       border-right: 1px solid var(--border);
       margin-right: 40px;
+      flex-shrink: 0;
     }
 
     .press-logos {
@@ -345,12 +360,22 @@
       align-items: center;
       gap: 48px;
       flex: 1;
+      overflow: hidden;
+    }
+
+    .press-logos-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      animation: marquee 20s linear infinite;
+      width: max-content;
     }
 
     .press-logo {
       display: flex;
       flex-direction: column;
       gap: 2px;
+      white-space: nowrap;
     }
 
     .press-logo-name {
@@ -368,6 +393,18 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.3);
+    }
+
+    .press-logo-dot {
+      color: #C8F135;
+      font-size: 8px;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     /* ============================================
@@ -1049,7 +1086,10 @@
       nav { padding: 0 32px; }
       .nav-links { display: none; }
       .hero-content { padding: 0 40px; }
-      .press-bar { padding: 0 40px; }
+      .press-bar { padding: 16px 0; flex-direction: column; height: auto; align-items: flex-start; gap: 10px; }
+      .press-bar-label { padding: 0 20px; border-right: none; margin-right: 0; }
+      .press-logos { width: 100%; flex: none; }
+      .press-logos-track { animation: marquee 10s linear infinite; gap: 32px; }
       .split-section { grid-template-columns: 1fr; }
       .split-image { height: 400px; }
       .photo-strip { grid-template-columns: repeat(2, 1fr); height: 560px; }
@@ -1495,21 +1535,23 @@
   <div class="press-bar">
     <span class="press-bar-label">As seen in</span>
     <div class="press-logos">
-      <div class="press-logo">
-        <span class="press-logo-name">GQ</span>
-        <span class="press-logo-desc">Featured In</span>
-      </div>
-      <div class="press-logo">
-        <span class="press-logo-name">blogTO</span>
-        <span class="press-logo-desc">Ranked #1 Hyrox Gym</span>
-      </div>
-      <div class="press-logo">
-        <span class="press-logo-name">Daily Hive</span>
-        <span class="press-logo-desc">Featured In</span>
-      </div>
-      <div class="press-logo">
-        <span class="press-logo-name">Grit Daily</span>
-        <span class="press-logo-desc">Featured In</span>
+      <div class="press-logos-track">
+        <div class="press-logo"><span class="press-logo-name">GQ</span><span class="press-logo-desc">Featured In</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">blogTO</span><span class="press-logo-desc">Ranked #1 Hyrox Gym</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">Daily Hive</span><span class="press-logo-desc">Featured In</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">Grit Daily</span><span class="press-logo-desc">Featured In</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">GQ</span><span class="press-logo-desc">Featured In</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">blogTO</span><span class="press-logo-desc">Ranked #1 Hyrox Gym</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">Daily Hive</span><span class="press-logo-desc">Featured In</span></div>
+        <span class="press-logo-dot">✦</span>
+        <div class="press-logo"><span class="press-logo-name">Grit Daily</span><span class="press-logo-desc">Featured In</span></div>
+        <span class="press-logo-dot">✦</span>
       </div>
     </div>
   </div>

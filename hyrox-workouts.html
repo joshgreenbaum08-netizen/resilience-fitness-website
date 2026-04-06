@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '588377326638619');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {content_name: 'HYROX Training', content_category: 'HYROX', currency: 'CAD'});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=588377326638619&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HYROX Training Toronto — Ranked #1 HYROX Gym | Resilience Fitness</title>
@@ -56,10 +70,13 @@
     .hero-actions { display: flex; gap: 16px; align-items: center; }
 
     /* PRESS BAR */
-    .press-bar { background: #0f0f0f; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0 80px; display: flex; align-items: center; height: 80px; gap: 0; }
-    .press-bar-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; padding-right: 40px; border-right: 1px solid var(--border); margin-right: 40px; }
-    .press-logos { display: flex; align-items: center; gap: 48px; flex: 1; }
-    .press-logo-name { font-size: 20px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: -0.5px; }
+    .press-bar { background: #0f0f0f; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0 80px; display: flex; align-items: center; height: 80px; gap: 0; overflow: hidden; }
+    .press-bar-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; padding-right: 40px; border-right: 1px solid var(--border); margin-right: 40px; flex-shrink: 0; }
+    .press-logos { display: flex; align-items: center; gap: 48px; flex: 1; overflow: hidden; }
+    .press-logos-track { display: flex; align-items: center; gap: 48px; animation: marquee 20s linear infinite; width: max-content; }
+    .press-logo-name { font-size: 20px; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: -0.5px; white-space: nowrap; }
+    .press-logo-dot { color: #C8F135; font-size: 8px; opacity: 0.5; flex-shrink: 0; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* QUOTE SECTION */
     .quote-section { padding: 100px 80px; background: var(--dark); text-align: center; }
@@ -346,10 +363,82 @@
 
     .btn-nav-primary:hover { background: #d4f542 !important; }
 
+    
+    /* ── Hamburger button ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* ── Mobile menu overlay ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(16px);
+      z-index: 999;
+      padding: 32px 28px;
+      overflow-y: auto;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: block;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: #C8F135; }
+    .mobile-menu .mobile-sub { padding-left: 16px; }
+    .mobile-menu .mobile-sub a { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.5); }
+    .mobile-menu .mobile-cta { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .mobile-menu .mobile-cta a { font-size: 15px; font-weight: 700; letter-spacing: 2px; text-align: center; padding: 16px 28px; border-radius: 2px; border-bottom: none; }
+    .mobile-menu .mobile-cta .btn-primary { background: #C8F135; color: #0A0A0A; }
+    .mobile-menu .mobile-cta .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
+
     /* mobile: hide nav links */
     @media (max-width: 768px) {
       nav { padding: 0 20px !important; }
       .nav-links { display: none !important; }
+      .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .press-bar { padding: 16px 0 !important; flex-direction: column; height: auto; align-items: flex-start; gap: 10px; }
+      .press-bar-label { padding: 0 20px; border-right: none; margin-right: 0; }
+      .press-logos { width: 100%; flex: none; }
+      .press-logos-track { animation: marquee 10s linear infinite; gap: 32px; }
     }
   </style>
 </head>
@@ -389,7 +478,36 @@
       <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
       <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="classes.html">Training</a>
+    <div class="mobile-sub">
+      <a href="classes.html">Classes</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="group-training.html">Memberships</a>
+    </div>
+    <a href="about-us.html">About</a>
+    <div class="mobile-sub">
+      <a href="about-us.html">Our Story</a>
+      <a href="coaches.html">Coaches</a>
+    </div>
+    <a href="locations-main.html">Locations</a>
+    <div class="mobile-sub">
+      <a href="east-york-facility.html">East York</a>
+      <a href="durham-facility.html">Durham</a>
+    </div>
+    <a href="hyrox-workouts.html">HYROX</a>
+    <a href="customer-service.html">Connect</a>
+    <div class="mobile-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn-outline">Shop</a>
+      <a href="group-training.html" class="btn-primary">Get Started</a>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -410,10 +528,24 @@
   <div class="press-bar">
     <span class="press-bar-label">As seen in</span>
     <div class="press-logos">
-      <span class="press-logo-name">GQ</span>
-      <span class="press-logo-name">The Best Toronto</span>
-      <span class="press-logo-name">BlogTO</span>
-      <span class="press-logo-name">Yahoo</span>
+      <div class="press-logos-track">
+        <span class="press-logo-name">GQ</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">The Best Toronto</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">BlogTO</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">Yahoo</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">GQ</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">The Best Toronto</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">BlogTO</span>
+        <span class="press-logo-dot">✦</span>
+        <span class="press-logo-name">Yahoo</span>
+        <span class="press-logo-dot">✦</span>
+      </div>
     </div>
   </div>
 
@@ -630,5 +762,26 @@
 
   <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
   <script src="chat-nudge.js"></script>
+  <script>
+    (function() {
+      var btn = document.getElementById('navHamburger');
+      var menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

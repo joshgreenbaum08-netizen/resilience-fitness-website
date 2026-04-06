@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '588377326638619');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {content_name: 'Memberships & Intro Offer', content_category: 'Fitness Membership', currency: 'CAD'});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=588377326638619&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Group Training Memberships — Resilience Fitness</title>
@@ -867,10 +881,78 @@
 
     .btn-nav-primary:hover { background: #d4f542 !important; }
 
+    
+    /* ── Hamburger button ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* ── Mobile menu overlay ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(16px);
+      z-index: 999;
+      padding: 32px 28px;
+      overflow-y: auto;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: block;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: #C8F135; }
+    .mobile-menu .mobile-sub { padding-left: 16px; }
+    .mobile-menu .mobile-sub a { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.5); }
+    .mobile-menu .mobile-cta { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .mobile-menu .mobile-cta a { font-size: 15px; font-weight: 700; letter-spacing: 2px; text-align: center; padding: 16px 28px; border-radius: 2px; border-bottom: none; }
+    .mobile-menu .mobile-cta .btn-primary { background: #C8F135; color: #0A0A0A; }
+    .mobile-menu .mobile-cta .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
+
     /* mobile: hide nav links */
     @media (max-width: 768px) {
       nav { padding: 0 20px !important; }
       .nav-links { display: none !important; }
+      .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
     }
   </style>
 </head>
@@ -910,7 +992,36 @@
       <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-nav-outline">Shop</a>
       <a href="group-training.html" class="btn btn-nav-primary">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="classes.html">Training</a>
+    <div class="mobile-sub">
+      <a href="classes.html">Classes</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="group-training.html">Memberships</a>
+    </div>
+    <a href="about-us.html">About</a>
+    <div class="mobile-sub">
+      <a href="about-us.html">Our Story</a>
+      <a href="coaches.html">Coaches</a>
+    </div>
+    <a href="locations-main.html">Locations</a>
+    <div class="mobile-sub">
+      <a href="east-york-facility.html">East York</a>
+      <a href="durham-facility.html">Durham</a>
+    </div>
+    <a href="hyrox-workouts.html">HYROX</a>
+    <a href="customer-service.html">Connect</a>
+    <div class="mobile-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn-outline">Shop</a>
+      <a href="group-training.html" class="btn-primary">Get Started</a>
+    </div>
+  </div>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -930,7 +1041,7 @@
       <span class="intro-pill">No Commitment</span>
       <span class="intro-pill">Any Class</span>
     </div>
-    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" class="btn-dark">Claim Offer →</a>
+    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" onclick="fbq('track', 'InitiateCheckout', {content_name: '10 Day Intro Offer', value: 24.95, currency: 'CAD', num_items: 1})" class="btn-dark">Claim Offer →</a>
   </div>
 
   <!-- TOGGLE -->
@@ -969,7 +1080,7 @@
         <div class="price">$239</div>
         <div class="price-sub">/ month + HST · 3 month commitment</div>
         <br />
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=40&prodid=125" class="btn-dark">Get This Plan →</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=40&prodid=125" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Unlimited Monthly', value: 239.0, currency: 'CAD', num_items: 1})" class="btn-dark">Get This Plan →</a>
       </div>
     </div>
 
@@ -988,7 +1099,7 @@
           <li>15-Day Money-Back</li>
           <li>Free Parking</li>
         </ul>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10268" class="card-cta">Get This Plan</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10268" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Unlimited Annual', value: 2649.0, currency: 'CAD', num_items: 1})" class="card-cta">Get This Plan</a>
       </div>
 
       <div class="membership-card">
@@ -1003,7 +1114,7 @@
           <li>15-Day Money-Back</li>
           <li>Free Parking</li>
         </ul>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10299" class="card-cta">Get This Plan</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10299" onclick="fbq('track', 'InitiateCheckout', {content_name: '6 Month Unlimited', value: 1399.0, currency: 'CAD', num_items: 1})" class="card-cta">Get This Plan</a>
       </div>
 
       <div class="membership-card">
@@ -1018,7 +1129,7 @@
           <li>Any Location</li>
           <li>Free Parking</li>
         </ul>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=40&prodId=112" class="card-cta">Get This Plan</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=40&prodId=112" onclick="fbq('track', 'InitiateCheckout', {content_name: '8x Month Membership', value: 179.0, currency: 'CAD', num_items: 1})" class="card-cta">Get This Plan</a>
       </div>
 
     </div>
@@ -1035,7 +1146,7 @@
         <div class="pack-price">$599</div>
         <div class="pack-price-sub">+ HST · Good for 1 year</div>
         <div class="pack-per">$23.96 per class</div>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10377" class="pack-cta">Buy Pack</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10377" onclick="fbq('track', 'InitiateCheckout', {content_name: '25 Class Pack', value: 599.0, currency: 'CAD', num_items: 1})" class="pack-cta">Buy Pack</a>
       </div>
 
       <div class="pack-card">
@@ -1044,7 +1155,7 @@
         <div class="pack-price">$385</div>
         <div class="pack-price-sub">+ HST · Good for 1 year</div>
         <div class="pack-per">$25.67 per class</div>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10376" class="pack-cta">Buy Pack</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10376" onclick="fbq('track', 'InitiateCheckout', {content_name: '15 Class Pack', value: 385.0, currency: 'CAD', num_items: 1})" class="pack-cta">Buy Pack</a>
       </div>
 
       <div class="pack-card">
@@ -1053,7 +1164,7 @@
         <div class="pack-price">$269</div>
         <div class="pack-price-sub">+ HST · Good for 1 year</div>
         <div class="pack-per">$26.90 per class</div>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10259" class="pack-cta">Buy Pack</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10259" onclick="fbq('track', 'InitiateCheckout', {content_name: '10 Class Pack', value: 269.0, currency: 'CAD', num_items: 1})" class="pack-cta">Buy Pack</a>
       </div>
 
       <div class="pack-card">
@@ -1062,7 +1173,7 @@
         <div class="pack-price">$139</div>
         <div class="pack-price-sub">+ HST · Good for 1 year</div>
         <div class="pack-per">$27.80 per class</div>
-        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10400" class="pack-cta">Buy Pack</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10400" onclick="fbq('track', 'InitiateCheckout', {content_name: '5 Class Pack', value: 139.0, currency: 'CAD', num_items: 1})" class="pack-cta">Buy Pack</a>
       </div>
 
     </div>
@@ -1077,7 +1188,7 @@
         <div class="dropin-price-wrap">
           <div class="dropin-price">$30</div>
           <div class="dropin-sub">+ HST per class</div>
-          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10354" class="pack-cta">Book Now</a>
+          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=22&prodId=10354" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Drop-In Class', value: 30.0, currency: 'CAD', num_items: 1})" class="pack-cta">Book Now</a>
         </div>
       </div>
 
@@ -1089,7 +1200,7 @@
         <div class="dropin-price-wrap">
           <div class="dropin-price">$25</div>
           <div class="dropin-sub">per class</div>
-          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=43&prodid=10391" class="pack-cta">Book Now</a>
+          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=43&prodid=10391" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Kidz Drop-In', value: 25.0, currency: 'CAD', num_items: 1})" class="pack-cta">Book Now</a>
         </div>
       </div>
 
@@ -1101,7 +1212,7 @@
         <div class="dropin-price-wrap">
           <div class="dropin-price">$100</div>
           <div class="dropin-sub">+ HST · 5 classes</div>
-          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=43&prodid=10391" class="pack-cta">Buy Pack</a>
+          <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=43&prodid=10391" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Kidz Drop-In', value: 25.0, currency: 'CAD', num_items: 1})" class="pack-cta">Buy Pack</a>
         </div>
       </div>
 
@@ -1137,7 +1248,7 @@
   <section class="bottom-cta">
     <h2>STILL NOT<br><span class="accent">SURE?</span></h2>
     <p>Try 10 days of unlimited classes for $24.95. New members only.</p>
-    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" class="btn btn-primary">Start Your 10 Days →</a>
+    <a href="https://clients.mindbodyonline.com/classic/ws?studioid=299681&stype=41&sTG=29&prodId=10414" onclick="fbq('track', 'InitiateCheckout', {content_name: '10 Day Intro Offer', value: 24.95, currency: 'CAD', num_items: 1})" class="btn btn-primary">Start Your 10 Days →</a>
   </section>
 
   <!-- FOOTER -->
@@ -1171,5 +1282,26 @@
 
   <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
   <script src="chat-nudge.js"></script>
+  <script>
+    (function() {
+      var btn = document.getElementById('navHamburger');
+      var menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

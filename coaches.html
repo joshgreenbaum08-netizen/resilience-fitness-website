@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '588377326638619');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=588377326638619&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Meet the Resilience Fitness coaching team — over 50 years of combined experience guiding members to achieve their fitness goals.">
@@ -185,6 +198,45 @@
     }
     .footer-bottom-links a:hover { color: var(--lime); }
 
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 8px; z-index: 1100;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: white; border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+      background: rgba(10,10,10,0.98); z-index: 999;
+      flex-direction: column; padding: 32px 24px; overflow-y: auto; gap: 0;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800;
+      letter-spacing: 1px; text-transform: uppercase; color: white;
+      text-decoration: none; padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--lime); }
+    .mobile-menu .mobile-sub { padding-left: 16px; }
+    .mobile-menu .mobile-sub a { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.5); }
+    .mobile-menu .mobile-cta { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .mobile-menu .mobile-cta a {
+      font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      text-align: center; padding: 14px; border-radius: 3px; border-bottom: none;
+    }
+    .mobile-menu .mobile-cta .btn-primary { background: var(--lime); color: var(--black); }
+    .mobile-menu .mobile-cta .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .coach-card { grid-template-columns: 1fr; }
@@ -193,7 +245,9 @@
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
-      .nav-links { display: none; }
+      .nav-links { display: none !important; }
+      .nav-cta { display: none !important; }
+      .nav-hamburger { display: flex !important; }
       .page-header { padding: 100px 20px 40px; }
       .page-header h1 { font-size: 36px; }
       .coaches-list { padding: 0 20px 60px; }
@@ -238,7 +292,36 @@
       <a href="https://www.resilienceactivewear.com" target="_blank" class="btn btn-outline">Shop</a>
       <a href="group-training.html" class="btn btn-primary">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="classes.html">Training</a>
+    <div class="mobile-sub">
+      <a href="classes.html">Classes</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="group-training.html">Memberships</a>
+    </div>
+    <a href="about-us.html">About</a>
+    <div class="mobile-sub">
+      <a href="about-us.html">Our Story</a>
+      <a href="coaches.html">Coaches</a>
+    </div>
+    <a href="locations-main.html">Locations</a>
+    <div class="mobile-sub">
+      <a href="east-york-facility.html">East York</a>
+      <a href="durham-facility.html">Durham</a>
+    </div>
+    <a href="hyrox-workouts.html">HYROX</a>
+    <a href="customer-service.html">Connect</a>
+    <div class="mobile-cta">
+      <a href="https://www.resilienceactivewear.com" target="_blank" class="btn-outline">Shop</a>
+      <a href="group-training.html" class="btn-primary">Get Started</a>
+    </div>
+  </div>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
@@ -251,7 +334,7 @@
 
     <!-- Andrew Gillis -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/07/Untitled-design-14.jpg" alt="Andrew Gillis" loading="lazy">
+      <img class="coach-photo" src="pictures/andrew-gillis.jpg" alt="Andrew Gillis" loading="lazy">
       <div class="coach-info">
         <div class="founders-badge">★ Co-Founder</div>
         <div class="coach-name">ANDREW GILLIS</div>
@@ -270,7 +353,7 @@
 
     <!-- Joshua Greenbaum -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-26.jpg" alt="Joshua Greenbaum" loading="lazy">
+      <img class="coach-photo" src="pictures/joshua-greenbaum.jpg" alt="Joshua Greenbaum" loading="lazy">
       <div class="coach-info">
         <div class="founders-badge">★ Co-Founder</div>
         <div class="coach-name">JOSHUA GREENBAUM</div>
@@ -290,7 +373,7 @@
 
     <!-- Cara Gillis -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/07/Untitled-design-34.jpg" alt="Cara Gillis" loading="lazy">
+      <img class="coach-photo" src="pictures/cara-gillis.jpg" alt="Cara Gillis" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">CARA GILLIS</div>
         <div class="coach-role">General Manager</div>
@@ -309,7 +392,7 @@
 
     <!-- Lanny Korbee -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-22.jpg" alt="Lanny Korbee" loading="lazy">
+      <img class="coach-photo" src="pictures/lanny-korbee.jpg" alt="Lanny Korbee" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">LANNY KORBEE</div>
         <div class="coach-role">Coach</div>
@@ -328,7 +411,7 @@
 
     <!-- Robbie Zicari -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-16.jpg" alt="Robbie Zicari" loading="lazy">
+      <img class="coach-photo" src="pictures/robbie-zicari.jpg" alt="Robbie Zicari" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">ROBBIE ZICARI</div>
         <div class="coach-role">Coach</div>
@@ -347,7 +430,7 @@
 
     <!-- Nikki Plante -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-28.jpg" alt="Nikki Plante" loading="lazy">
+      <img class="coach-photo" src="pictures/nikki-plante.jpg" alt="Nikki Plante" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">NIKKI PLANTE</div>
         <div class="coach-role">Coach</div>
@@ -361,7 +444,7 @@
 
     <!-- Meron Ogbae -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-27.jpg" alt="Meron Ogbae" loading="lazy">
+      <img class="coach-photo" src="pictures/meron-ogbae.jpg" alt="Meron Ogbae" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">MERON OGBAE</div>
         <div class="coach-role">Coach</div>
@@ -380,7 +463,7 @@
 
     <!-- Shyla Davenport -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-15.jpg" alt="Shyla Davenport" loading="lazy">
+      <img class="coach-photo" src="pictures/shyla-davenport.jpg" alt="Shyla Davenport" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">SHYLA DAVENPORT</div>
         <div class="coach-role">Coach</div>
@@ -394,7 +477,7 @@
 
     <!-- Jazz Lindsey -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-24.jpg" alt="Jazz Lindsey" loading="lazy">
+      <img class="coach-photo" src="pictures/jazz-lindsey.jpg" alt="Jazz Lindsey" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">JAZZ LINDSEY</div>
         <div class="coach-role">Coach</div>
@@ -408,7 +491,7 @@
 
     <!-- Moe Elleithy -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/09/Untitled-design-23.jpg" alt="Moe Elleithy" loading="lazy">
+      <img class="coach-photo" src="pictures/moe-elleithy.jpg" alt="Moe Elleithy" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">MOE ELLEITHY</div>
         <div class="coach-role">Coach</div>
@@ -427,7 +510,7 @@
 
     <!-- Daniel-Lee Hunte -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2025/07/Untitled-design-21.jpg" alt="Daniel-Lee Hunte" loading="lazy">
+      <img class="coach-photo" src="pictures/daniel-lee-hunte.jpg" alt="Daniel-Lee Hunte" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">DANIEL-LEE HUNTE</div>
         <div class="coach-role">Coach</div>
@@ -444,7 +527,7 @@
 
     <!-- Jada Singh -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-29.jpg" alt="Jada Singh" loading="lazy">
+      <img class="coach-photo" src="pictures/jada-singh.jpg" alt="Jada Singh" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">JADA SINGH</div>
         <div class="coach-role">Coach</div>
@@ -462,7 +545,7 @@
 
     <!-- Julia Listro -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-31.jpg" alt="Julia Listro" loading="lazy">
+      <img class="coach-photo" src="pictures/julia-listro.jpg" alt="Julia Listro" loading="lazy">
       <div class="coach-info">
         <div class="coach-name">JULIA LISTRO</div>
         <div class="coach-role">Coach</div>
@@ -473,16 +556,21 @@
       </div>
     </div>
 
-    <!-- Vlad Zamrii -->
+    <!-- Lorrington Murray -->
     <div class="coach-card">
-      <img class="coach-photo" src="https://resiliencefitness.ca/wp-content/uploads/2026/01/Untitled-design-53.png" alt="Vlad Zamrii" loading="lazy">
+      <img class="coach-photo" src="pictures/lorrington-murray.jpg" alt="Lorrington Murray" loading="lazy">
       <div class="coach-info">
-        <div class="coach-name">VLAD ZAMRII</div>
+        <div class="coach-name">LORRINGTON MURRAY</div>
         <div class="coach-role">Coach</div>
+        <div class="coach-tags">
+          <span class="coach-tag">Strength Training</span>
+          <span class="coach-tag">Hybrid Performance</span>
+          <span class="coach-tag">HYROX</span>
+        </div>
         <div class="coach-bio">
-          <p><strong>Coach Vlad</strong> is a multidisciplinary coach with experience working with youth, adult clients, and competitive sports teams, including leading off-season conditioning for athletic programs. His coaching style blends hands-on athletic experience with a strong foundation in safety, education, and functional movement.</p>
-          <p>With a background in boxing, long-distance running, and current training for Spartan and Tough Mudder–style events, Vlad is deeply passionate about functional fitness that carries over into real life. His experience as a Certified First Aid Instructor and graduate of a professional firefighting academy shapes his focus on resilience, preparedness, and practical strength.</p>
-          <p>Vlad's goal is to help clients build confidence, strength, and capability that supports both daily life and athletic performance.</p>
+          <p><strong>Coach L</strong> is a former varsity athlete whose passion for training was shaped by years in competitive sports, building a strong foundation in discipline, consistency, and performance.</p>
+          <p>Certified since 2021, he specializes in strength training, hybrid performance, and HYROX-style conditioning — helping clients move better, get stronger, and build lasting confidence.</p>
+          <p>Coach L also coaches varsity basketball and is passionate about developing confidence in athletes both on and off the court. He is passionate about creating an environment that challenges people by keeping training purposeful, supportive, and rewarding.</p>
         </div>
       </div>
     </div>
@@ -550,5 +638,26 @@
 
   <script src="https://resilience-chatbot.vercel.app/widget.js"></script>
   <script src="chat-nudge.js"></script>
+  <script>
+    (function() {
+      var btn = document.getElementById('navHamburger');
+      var menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
