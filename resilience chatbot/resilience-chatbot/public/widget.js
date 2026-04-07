@@ -5,8 +5,8 @@
   const CONFIG = {
     // CHANGE THIS to your deployed Vercel URL
     apiUrl: "https://resilience-chatbot.vercel.app/api/chat",
-    brandColor: "#C4D031",
-    brandColorDark: "#a8b228",
+    brandColor: "#C8F135",
+    brandColorDark: "#d4f548",
     title: "Resilience Fitness",
   };
 
@@ -99,9 +99,11 @@
   // ─── Styles ──────────────────────────────────────────────────────
   const styles = document.createElement("style");
   styles.textContent = `
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&display=swap');
+
     #rf-chat-widget * {
       margin: 0; padding: 0; box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     /* ── Pulse ring ── */
@@ -175,7 +177,7 @@
       position: fixed; bottom: 100px; right: 24px;
       width: 400px; max-width: calc(100vw - 32px);
       height: 620px; max-height: calc(100vh - 140px);
-      background: #111; border-radius: 20px;
+      background: #0A0A0A; border-radius: 4px;
       box-shadow: 0 12px 48px rgba(0,0,0,0.45);
       display: flex; flex-direction: column; overflow: hidden;
       z-index: 99998;
@@ -189,9 +191,9 @@
 
     /* ── Header bar ── */
     .rf-header {
-      background: #111; padding: 16px 20px;
+      background: #0A0A0A; padding: 16px 20px;
       display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid #1e1e1e;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       min-height: 56px;
     }
     .rf-header-left {
@@ -209,9 +211,10 @@
     }
     .rf-header-title {
       color: #fff; font-size: 14px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
     }
     .rf-home-btn {
-      background: none; border: 1px solid #333; border-radius: 8px;
+      background: none; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px;
       color: #999; font-size: 11px; font-weight: 600;
       padding: 5px 10px; cursor: pointer;
       transition: border-color 0.2s, color 0.2s;
@@ -237,8 +240,9 @@
       display: flex; flex-direction: column;
     }
     .rf-home-heading {
-      font-size: 24px; font-weight: 800; color: #fff;
+      font-size: 24px; font-weight: 900; color: #fff;
       text-align: center; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: -0.5px;
     }
     .rf-home-sub {
       font-size: 13px; color: #666; text-align: center;
@@ -251,8 +255,8 @@
     }
     .rf-cat-card {
       display: flex; align-items: center; gap: 12px;
-      background: #1a1a1a; border: 1px solid #222;
-      border-radius: 12px; padding: 14px 16px;
+      background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px; padding: 14px 16px;
       cursor: pointer; transition: border-color 0.2s, background 0.2s;
     }
     .rf-cat-card:hover {
@@ -289,8 +293,8 @@
     }
     .rf-sub-item {
       display: flex; align-items: center; justify-content: space-between;
-      background: #1a1a1a; border: 1px solid #222;
-      border-radius: 12px; padding: 14px 16px;
+      background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px; padding: 14px 16px;
       cursor: pointer; font-size: 13.5px; color: #e5e5e5;
       text-align: left; transition: border-color 0.2s, background 0.2s;
       line-height: 1.4;
@@ -310,7 +314,7 @@
       min-height: 100%;
     }
     .rf-msg {
-      max-width: 85%; padding: 10px 16px; border-radius: 14px;
+      max-width: 85%; padding: 10px 16px; border-radius: 4px;
       font-size: 14px; line-height: 1.55; word-wrap: break-word; white-space: pre-wrap;
     }
     .rf-msg a { color: ${CONFIG.brandColor}; text-decoration: underline; }
@@ -326,7 +330,7 @@
     /* Typing */
     .rf-typing {
       align-self: flex-start; display: flex; gap: 4px;
-      padding: 12px 16px; background: #1a1a1a; border-radius: 14px;
+      padding: 12px 16px; background: #1a1a1a; border-radius: 4px;
       border-bottom-left-radius: 4px;
     }
     .rf-typing-dot {
@@ -342,13 +346,13 @@
 
     /* ── Input ── */
     .rf-input-area {
-      padding: 12px 16px; background: #111;
-      border-top: 1px solid #1e1e1e;
+      padding: 12px 16px; background: #0A0A0A;
+      border-top: 1px solid rgba(255,255,255,0.08);
       display: flex; gap: 8px; align-items: flex-end;
     }
     .rf-input-area textarea {
       flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a;
-      border-radius: 12px; padding: 10px 14px; color: #e5e5e5;
+      border-radius: 4px; padding: 10px 14px; color: #e5e5e5;
       font-size: 14px; font-family: inherit; resize: none;
       outline: none; max-height: 100px; line-height: 1.4;
       transition: border-color 0.2s;
@@ -356,7 +360,7 @@
     .rf-input-area textarea::placeholder { color: #555; }
     .rf-input-area textarea:focus { border-color: ${CONFIG.brandColor}; }
     .rf-send-btn {
-      width: 38px; height: 38px; border-radius: 10px;
+      width: 38px; height: 38px; border-radius: 4px;
       background: ${CONFIG.brandColor}; border: none; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; transition: background 0.2s, opacity 0.2s;
@@ -366,7 +370,7 @@
     .rf-send-btn svg { width: 18px; height: 18px; color: #1a1a1a; }
 
     .rf-powered {
-      text-align: center; padding: 6px; background: #111;
+      text-align: center; padding: 6px; background: #0A0A0A;
       font-size: 10px; color: #444;
     }
 
@@ -378,7 +382,7 @@
         width: 100%;
         height: 85dvh;
         max-height: 85dvh;
-        border-radius: 20px 20px 0 0;
+        border-radius: 4px 4px 0 0;
         position: fixed;
         padding-bottom: env(safe-area-inset-bottom);
       }
@@ -410,7 +414,7 @@
       <div id="rf-chat-window">
         <div class="rf-header">
           <div class="rf-header-left">
-            <div class="rf-header-logo"><img src="https://resilience-chatbot.vercel.app/here.png" alt="Resilience Fitness" /></div>
+            <div class="rf-header-logo"><img src="https://resilience-chatbot.vercel.app/resilience-logo.png" alt="Resilience Fitness" /></div>
             <div class="rf-header-title">${CONFIG.title}</div>
           </div>
           <button class="rf-home-btn" id="rf-home-btn">Home</button>
